@@ -1,0 +1,8 @@
+/* The shared tokens and the Pretendard font from the tokens package in this repository. */
+@import '../packages/design-tokens/tokens.css';
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
