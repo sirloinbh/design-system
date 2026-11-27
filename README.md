@@ -25,6 +25,17 @@ design-system is the source. The project-standards sync delivers the UI files to
 
 Showcase (Storybook, #1179): not set up yet. Release process: not set up yet (version scheme in ADR-0031, card #1160).
 
+## Documents
+
+- [docs/guidelines.md](docs/guidelines.md): the single list of design rules, each with the check that enforces it, plus the component API conventions.
+- [docs/review-checklist.md](docs/review-checklist.md): the checklist for design-system pull requests.
+- [docs/design-system.md](docs/design-system.md): the screen rules every app follows.
+- [docs/layout.md](docs/layout.md): the common app shell, menu order and responsive rules.
+- [docs/ui-components.md](docs/ui-components.md): the shared component list, touch targets, cursor, pick-instead-of-type rules.
+- [docs/design-tokens.md](docs/design-tokens.md): the token values.
+- [docs/screen-text-check.md](docs/screen-text-check.md): English-only screen text.
+- [docs/adr/](docs/adr/): UI decisions moved from project-standards (ADR-0001 to ADR-0004). Later decisions are numbered from ADR-0005.
+
 ## Rules
 
 - Work follows the project-standards procedure: an issue in `sirloinbh/project-standards` (card numbers in this repository's PRs refer to it), a branch `<type>/<issue-number>-<slug>`, a commit and a `docs/changes/<issue-number>-<slug>.md` record together, a pull request from the template, and a merge commit. `main` is protected: a pull request is required.

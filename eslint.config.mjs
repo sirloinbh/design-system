@@ -16,11 +16,21 @@ export default [
     { js, tseslint, globals, reactHooks, reactRefresh, jsxA11y, importSort, prettier },
     {
       ignores: ['scripts/**'],
-      frontendFiles: 'src/**/*.{ts,tsx}',
-      typedFiles: ['src/**/*.{ts,tsx}'],
+      frontendFiles: '{src,stories,showcase}/**/*.{ts,tsx}',
+      typedFiles: [
+        'src/**/*.{ts,tsx}',
+        'stories/**/*.{ts,tsx}',
+        'showcase/**/*.ts',
+        '.storybook/**/*.{ts,tsx}',
+      ],
       tsconfigRootDir: import.meta.dirname,
     },
   ),
   // Input (src/components/ui) renders a native <input>, so a <label> wrapping it counts as labelled (the apps set the same).
   { settings: { 'jsx-a11y-x': { components: { Input: 'input' } } } },
+  // Storybook needs a default export in story files and in its config files.
+  {
+    files: ['stories/**/*.stories.tsx', '.storybook/*.{ts,tsx}'],
+    rules: { 'no-restricted-syntax': 'off' },
+  },
 ];
