@@ -28,6 +28,6 @@ export const GUIDELINE_DOCS: (DocSource & { file: string })[] = [
 export function rewriteLinks(source: string, docs: { id: string; file: string }[]): string {
   return source.replace(/\]\(([\w-]+\.md)(#[^)]*)?\)/g, (match, file: string) => {
     const doc = docs.find((d) => d.file === file);
-    return doc ? `](?path=/story/guidelines-${doc.id}--page)` : match;
+    return doc ? `](?path=/docs/guidelines-${doc.id}--docs)` : match;
   });
 }
