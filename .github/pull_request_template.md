@@ -20,6 +20,10 @@
 <!-- Things the user must decide or run, plus choices you made without asking (default chosen, why, how to reverse). "None" if nothing -->
 - [ ] 
 
+## Design checklist
+<!-- UI or token change: go through docs/review-checklist.md and tick what applies. "Not a UI change" otherwise -->
+- [ ] [Review checklist](../docs/review-checklist.md) done
+
 ## Impact
 <!-- Effect on deployment, other repos, local setup (.env etc.). "None" if nothing -->
 - 

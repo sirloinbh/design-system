@@ -90,7 +90,7 @@ While loading, feature screens do not leave a blank screen or only text ("Loadin
 Components are synced only to apps whose `features.ui` is `true` in the registry, because adding them to an app without the dependencies would break the build. With the design system rollout (#126), all 8 apps are `true`. For a new app or an app that has the feature off, turn it on in this order.
 
 1. **[User approval]** Install dependencies: `radix-ui@1.7.0 sonner@2.0.8 vaul@1.1.2 tw-animate-css@1.4.0` (all pinned versions from the table in the [dependency policy](https://github.com/sirloinbh/project-standards/blob/main/docs/dependency-policy.md), `--ignore-scripts`). `clsx`, `tailwind-merge`, `class-variance-authority`, and `lucide-react` must also be present.
-2. Add `@import 'tw-animate-css';` to `frontend/src/index.css` ([design tokens README](https://github.com/sirloinbh/project-standards/blob/main/packages/design-tokens/README.md)).
+2. Add `@import 'tw-animate-css';` to `frontend/src/index.css` ([design tokens README](../packages/design-tokens/README.md)).
 3. For any of the app's existing `components/ui/` files whose names collide, replace them with the shared components or move them to another folder. Sync overwrites the same path.
 4. Open a PR in the center that changes the app's `features.ui` to `true` in `registry/projects.json`. The components come in with the next sync PR.
 
