@@ -6,7 +6,7 @@
 
 ## Changes — 2026-11-28
 
-- `showcase/tests/stories.pw.ts` (Playwright) runs over every entry of the built Storybook `index.json`, in light and dark at 360px and 1280px (320 tests today). Each test checks:
+- `showcase/tests/stories.pw.ts` (Playwright) runs over every entry of the built Storybook `index.json`, in light and dark at 360px and 1280px (348 tests today). Each test checks:
   - an axe scan of the whole page, failing on serious or critical issues,
   - no visible text under 12px,
   - no Hangul in the rendered text (a line with `korean-ok` is allowed),
@@ -14,7 +14,7 @@
 - A new story needs no test change. Its baselines are written on the first run in the container and committed with the story (`docs/showcase-tests.md`).
 - `playwright.config.ts` serves `.local/storybook-static` with `showcase/tests/serve-static.mjs` (Node built-ins only), keeps one Linux baseline set, and in CI never writes baselines: a missing or changed baseline fails. Screenshots are compared only with `SHOWCASE_VISUAL=1` in the pinned Playwright container; elsewhere only the accessibility, text size and English checks run in the installed Chrome.
 - `.github/workflows/showcase-tests.yml`: job `showcase` runs `npm run showcase:test` in the Playwright container pinned by digest (the digest of project-standards `versions.json` `images.playwright`) and uploads the report. It is separate from `check`, which stays fast. Making `showcase` a required check is a repository setting.
-- `npm run showcase:test` builds Storybook and runs the tests. The 320 baselines were made in the container with Playwright 1.63.0.
+- `npm run showcase:test` builds Storybook and runs the tests. The 348 baselines were made in the container with Playwright 1.63.0.
 - Found by the new tests and fixed here:
   - The `Markdown` block threw outside a docs page, so the guideline pages of #1185 did not render in the browser. They are now MDX docs pages (`stories/Guidelines/*.mdx`) and links, search and the pattern "Follows" lines point to `--docs` ids.
   - The Colors page used a `<small>` of 11.2px. It is 12px now.
@@ -27,4 +27,4 @@ Dev dependencies, exact, no install scripts, installed with `--ignore-scripts`, 
 
 ## Verification
 
-- `npm run check`, and the container run of the 320 tests (300 matched the baselines made by the previous run, so screenshots are stable).
+- `npm run check`, and the container run of the 348 tests (320 matched the baselines made by the previous run, so screenshots are stable).
