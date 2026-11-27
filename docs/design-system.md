@@ -1,6 +1,6 @@
 # Design system (common part)
 
-These are the screen rules all 8 apps follow. Values are in [design-tokens.md](https://github.com/sirloinbh/project-standards/blob/main/docs/design-tokens.md), and the reasoning behind decisions is in [ADR-0001](adr/0001-shadcn-ui-icons-emoji.md), [ADR-0002](adr/0002-neutral-light-dark.md), and [ADR-0003](adr/0003-dark-only-option.md). The only things that differ per app are the **display name and the dark-only option (`features.darkOnly`)**. All 8 apps use the same black and white colors, and every app except those with dark-only turned on supports both light and dark modes.
+These are the screen rules all 8 apps follow. Values are in [design-tokens.md](design-tokens.md), and the reasoning behind decisions is in [ADR-0001](adr/0001-shadcn-ui-icons-emoji.md), [ADR-0002](adr/0002-neutral-light-dark.md), and [ADR-0003](adr/0003-dark-only-option.md). The only things that differ per app are the **display name and the dark-only option (`features.darkOnly`)**. All 8 apps use the same black and white colors, and every app except those with dark-only turned on supports both light and dark modes.
 
 The design system lives in this repository ([ADR-0031](https://github.com/sirloinbh/project-standards/blob/main/docs/adr/0031-design-system-repository.md)). The apps receive the UI files through the project-standards sync; the move plan is in [design-system-move.md](https://github.com/sirloinbh/project-standards/blob/main/docs/design-system-move.md).
 
@@ -51,7 +51,7 @@ The design system lives in this repository ([ADR-0031](https://github.com/sirloi
 
 ## Migrating existing apps
 
-What workout-memo's legacy tokens (`--color-ink` and so on) correspond to among the new tokens is in the mapping table in [design-tokens.md](https://github.com/sirloinbh/project-standards/blob/main/docs/design-tokens.md). The migration is done per app in #126. The method decided in workout-memo (workout-memo#159) is as follows. Other apps follow the same order.
+What workout-memo's legacy tokens (`--color-ink` and so on) correspond to among the new tokens is in the mapping table in [design-tokens.md](design-tokens.md). The migration is done per app in #126. The method decided in workout-memo (workout-memo#159) is as follows. Other apps follow the same order.
 
 1. **Shared files:** From the center, with that app's `features.ui` turned on, run `node scripts/sync.mjs --dry-run --out <folder> --target sirloinbh/<app> --local <app>=<checkout>` and put the resulting `components/`, `lib/`, and `theme-init.js` into the app PR as they are. After the app PR is merged, merge the central `features.ui` PR, and the sync PR will contain only the manifest.
 2. **Existing CSS:** Import it in `index.css` with `@import './style.css' layer(components);` so the shared components' utilities win. Delete the shell rules (sidebar, header, footer, modal frame), scope element rules (`button`, `p`, `h1`) inside `:where(.legacy)`, and then put the `legacy` class on the page body and modal content. Replace all hand-written colors with tokens.
