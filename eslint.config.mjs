@@ -16,14 +16,19 @@ export default [
     { js, tseslint, globals, reactHooks, reactRefresh, jsxA11y, importSort, prettier },
     {
       ignores: ['scripts/**'],
-      frontendFiles: '{src,stories}/**/*.{ts,tsx}',
-      typedFiles: ['src/**/*.{ts,tsx}', 'stories/**/*.{ts,tsx}', '.storybook/**/*.ts'],
+      frontendFiles: '{src,stories,showcase}/**/*.{ts,tsx}',
+      typedFiles: [
+        'src/**/*.{ts,tsx}',
+        'stories/**/*.{ts,tsx}',
+        'showcase/**/*.ts',
+        '.storybook/**/*.{ts,tsx}',
+      ],
       tsconfigRootDir: import.meta.dirname,
     },
   ),
   // Storybook needs a default export in story files and in its config files.
   {
-    files: ['stories/**/*.stories.tsx', '.storybook/*.ts'],
+    files: ['stories/**/*.stories.tsx', '.storybook/*.{ts,tsx}'],
     rules: { 'no-restricted-syntax': 'off' },
   },
 ];
