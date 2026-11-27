@@ -14,4 +14,4 @@
 
 ## Verification
 
-- `npm run check` passes (Tests  212 passed | 3 skipped (215)).
+- `npm run check` passes (Tests 212 passed | 3 skipped (215)).
