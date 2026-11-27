@@ -1,0 +1,41 @@
+# Browser checks over the built Storybook: a screenshot of every story in light and dark at 360 and 1280px compared
+# with the stored baselines, an accessibility scan, the 12px text floor and the English-only rule (#1186).
+# Screenshots are compared only in the pinned Playwright container, so fonts and Chromium match the baselines.
+name: showcase-tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  packages: read # install the @sirloinbh shared packages
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  showcase:
+    runs-on: ubuntu-24.04
+    container:
+      # Keep this digest equal to images.playwright in project-standards versions.json; @playwright/test must match it.
+      image: mcr.microsoft.com/playwright:v1.63.0-noble@sha256:eff16c30e6f3f4af0a03fa4b706120d5e9b0891c344a27d64559aff5900a4a27
+      options: --ipc=host
+    env:
+      NODE_AUTH_TOKEN: ${{ github.token }}
+      CI: 'true'
+      SHOWCASE_VISUAL: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: npm ci
+      - run: npm run showcase:test
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ !cancelled() }}
+        with:
+          name: showcase-test-report
+          path: |
+            playwright-report
+            test-results
+          retention-days: 7

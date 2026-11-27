@@ -19,6 +19,6 @@ test('links to other guideline documents become showcase page links', () => {
     'See [the checklist](review-checklist.md#a) and [other](x.md).',
     GUIDELINE_DOCS,
   );
-  expect(out).toContain('(?path=/story/guidelines-review-checklist--page)');
+  expect(out).toContain('(?path=/docs/guidelines-review-checklist--docs)');
   expect(out).toContain('(x.md)');
 });

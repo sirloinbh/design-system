@@ -30,5 +30,8 @@ src/auth-origin.ts
 src/auth-origin.test.ts
 src/session-watch.ts
 src/session-watch.test.ts
+playwright-report/
+test-results/
+showcase/tests/__screenshots__/
 # Delivered to the apps byte for byte (sync compares hashes); the skill text carries {{template variables}}
 delivery/
