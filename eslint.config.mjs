@@ -21,6 +21,7 @@ export default [
         'src/**/*.{ts,tsx}',
         'stories/**/*.{ts,tsx}',
         'showcase/**/*.ts',
+        '*.config.ts',
         '.storybook/**/*.{ts,tsx}',
       ],
       tsconfigRootDir: import.meta.dirname,
