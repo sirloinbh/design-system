@@ -1,7 +1,7 @@
-/* Generated file. Edit design/tokens.json in sirloinbh/project-standards and regenerate with `npm run tokens`. */
+/* Generated file. Edit tokens/tokens.json in sirloinbh/design-system and regenerate with `npm run tokens`. */
 /* CSS variables usable without Tailwind. All apps use the same black-and-white colors (ADR-0008). */
 /* Dark mode: <html class="dark">, or the system setting (prefers-color-scheme) when there is no class. <html class="light"> forces light. */
-/* Interim copy: the Pretendard import is left out until #1165 moves the fonts here. */
+@import './fonts/pretendard.css';
 
 :root {
   color-scheme: light;

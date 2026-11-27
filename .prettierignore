@@ -8,4 +8,8 @@ scripts/
 .github/ISSUE_TEMPLATE/
 .github/pull_request_template.md
 security/
-showcase/tokens.css
+# Generated from tokens/tokens.json (npm run tokens, npm run tokens:docs) or hash-checked third-party files
+docs/design-tokens.md
+packages/design-tokens/tokens.css
+packages/design-tokens/tailwind.css
+packages/design-tokens/fonts/
