@@ -1,0 +1,37 @@
+{
+  "name": "design-system",
+  "private": true,
+  "type": "module",
+  "description": "Shared design system for the sirloinbh apps: tokens, UI kit, guidelines and a Storybook showcase",
+  "packageManager": "npm@11.19.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "secrets:check": "node scripts/secret-scan.mjs",
+    "ioc:check": "node scripts/ioc-scan.mjs",
+    "links:check": "node scripts/check-doc-links.mjs",
+    "check": "npm run lint && npm run format:check && npm run typecheck && npm run test && npm run secrets:check && npm run ioc:check && npm run links:check"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@sirloinbh/eslint-config": "1.2.0",
+    "@sirloinbh/prettier-config": "1.0.0",
+    "@sirloinbh/tsconfig": "1.0.0",
+    "eslint": "10.15.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-jsx-a11y-x": "0.2.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.7",
+    "eslint-plugin-simple-import-sort": "14.0.0",
+    "globals": "16.5.0",
+    "prettier": "3.9.10",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.73.0",
+    "vitest": "5.0.3"
+  }
+}
