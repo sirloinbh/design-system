@@ -7,7 +7,7 @@
 
 ## Changes — 2026-11-28
 
-- `delivery/ui/skills/std-ux-audit/SKILL.md`: the UX and accessibility audit skill the apps run. Text is byte for byte the copy in project-standards `templates/ui/skills/std-ux-audit/SKILL.md`; its links point to [guidelines](../guidelines.md) and [UI components](../ui-components.md) here. `{{project.title}}` is filled in per app by the central sync.
+- `delivery/ui/skills/std-ux-audit/SKILL.md.tmpl`: the UX and accessibility audit skill the apps run. Text is byte for byte the copy in project-standards `templates/ui/skills/std-ux-audit/SKILL.md.tmpl`; its links point to [guidelines](../guidelines.md) and [UI components](../ui-components.md) here. `{{project.title}}` is filled in per app by the central sync.
 - `.prettierignore`: `delivery/` is not formatted, because sync compares file hashes.
 - `docs/release.md`: names the skill as part of `delivery/ui/`.
 
