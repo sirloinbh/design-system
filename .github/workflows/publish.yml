@@ -1,0 +1,88 @@
+# Release of @sirloinbh/design-tokens. Pushing a tag design-tokens/v<version> publishes to GitHub Packages and records it in the Release.
+# Local publish is forbidden (ADR-0004). The user pushes the tag (#88).
+# The tag name is never put into the shell directly. It is passed only as an environment variable and its format is checked in the first step (prevents script injection).
+name: publish
+
+on:
+  push:
+    tags: ['design-tokens/v*']
+
+permissions:
+  contents: write # create the Release
+  packages: write # publish to GitHub Packages (also reads the @sirloinbh dev packages)
+
+concurrency:
+  group: publish-${{ github.ref_name }}
+  cancel-in-progress: false
+
+env:
+  TAG: ${{ github.ref_name }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check tag format and read package and version
+        id: tag
+        run: |
+          if [[ ! "$TAG" =~ ^([a-z][a-z0-9-]*)/v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+            echo "Tag format is not <package>/v<x.y.z>: $TAG" >&2
+            exit 1
+          fi
+          echo "package=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
+          echo "version=${BASH_REMATCH[2]}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24.21.0'
+          package-manager-cache: false
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@sirloinbh'
+
+      - name: Checks (all of npm run check, tag matches version)
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm ci
+          npm run check
+          node scripts/package-guard.mjs --tag "$TAG"
+
+      - name: Publish
+        working-directory: packages/${{ steps.tag.outputs.package }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGE: ${{ steps.tag.outputs.package }}
+          VERSION: ${{ steps.tag.outputs.version }}
+        # A rerun after the Release step failed must not stop here: npm refuses to publish a version twice (#1031).
+        run: |
+          if [ "$(npm view "@sirloinbh/$PACKAGE@$VERSION" version 2>/dev/null)" = "$VERSION" ]; then
+            echo "@sirloinbh/$PACKAGE@$VERSION is already published, skipping npm publish"
+          else
+            npm publish --ignore-scripts
+          fi
+
+      - name: Record the release in the Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGE: ${{ steps.tag.outputs.package }}
+          VERSION: ${{ steps.tag.outputs.version }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            echo "The Release for $TAG already exists, skipping"
+            exit 0
+          fi
+          node scripts/changelog-section.mjs "$PACKAGE" "$VERSION" > changes.md
+          {
+            echo "## Changes"
+            echo
+            cat changes.md
+            echo
+            echo "## Release record"
+            echo
+            echo "- Package: @sirloinbh/$PACKAGE@$VERSION"
+            echo "- Commit: $GITHUB_SHA"
+            echo "- Deploy run: $RUN_URL"
+          } > notes.md
+          gh release create "$TAG" --title "@sirloinbh/$TAG" --notes-file notes.md --verify-tag

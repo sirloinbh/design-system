@@ -15,7 +15,11 @@
     "secrets:check": "node scripts/secret-scan.mjs",
     "ioc:check": "node scripts/ioc-scan.mjs",
     "links:check": "node scripts/check-doc-links.mjs",
-    "check": "npm run lint && npm run format:check && npm run typecheck && npm run test && npm run secrets:check && npm run ioc:check && npm run links:check"
+    "tokens": "node scripts/build-tokens.mjs",
+    "tokens:docs": "node scripts/build-token-docs.mjs",
+    "tokens:check": "node scripts/build-tokens.mjs --check && node scripts/build-token-docs.mjs --check",
+    "package:check": "node scripts/package-guard.mjs",
+    "check": "npm run lint && npm run format:check && npm run typecheck && npm run test && npm run tokens:check && npm run package:check && npm run secrets:check && npm run ioc:check && npm run links:check"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

@@ -1,0 +1,28 @@
+{
+  "name": "@sirloinbh/design-tokens",
+  "version": "1.1.1",
+  "description": "Shared design tokens for the sirloinbh apps (CSS variables, Tailwind CSS 4 theme, Pretendard font)",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "exports": {
+    "./tokens.css": "./tokens.css",
+    "./tailwind.css": "./tailwind.css",
+    "./fonts/pretendard.css": "./fonts/pretendard.css"
+  },
+  "style": "tokens.css",
+  "files": [
+    "tokens.css",
+    "tailwind.css",
+    "fonts/",
+    "LICENSE.md",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sirloinbh/design-system.git",
+    "directory": "packages/design-tokens"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
