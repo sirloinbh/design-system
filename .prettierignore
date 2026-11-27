@@ -30,3 +30,5 @@ src/auth-origin.ts
 src/auth-origin.test.ts
 src/session-watch.ts
 src/session-watch.test.ts
+# Delivered to the apps byte for byte (sync compares hashes); the skill text carries {{template variables}}
+delivery/
