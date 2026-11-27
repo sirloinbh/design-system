@@ -5,7 +5,7 @@ A release is how a change here reaches every app (ADR-0031, delivery model A). T
 ## What a release holds
 
 - A tag `v<major>.<minor>.<patch>` (not the `design-tokens/v*` package tags) and a GitHub Release with the CHANGELOG section as notes.
-- A folder `delivery/ui/` with the files the apps receive, laid out like an app (`frontend/src/...`, `.tmpl` files carry the per-app variables). Stories, showcase files and docs never go in `delivery/`.
+- A folder `delivery/ui/` with the files the apps receive, laid out like an app (`frontend/src/...`, `.tmpl` files carry the per-app variables). It also holds `delivery/ui/skills/std-ux-audit/SKILL.md`, the UX audit skill (#1168), which is written there and not generated. Stories, showcase files and docs never go in `delivery/`.
 
 ## Choosing the version
 
