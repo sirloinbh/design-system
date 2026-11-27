@@ -1,0 +1,10 @@
+/* Interim token copy: showcase/tokens.css is the project-standards tokens.css (1.1.0).
+   #1165 moves the tokens package here; then replace this import with the built tokens. */
+@import './tokens.css';
+
+html,
+body {
+  background: var(--color-background, #fff);
+  color: var(--color-foreground, #111);
+  font-family: system-ui, sans-serif;
+}
