@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.local/
+.git/
+package-lock.json
+# Copied as they are from project-standards
+scripts/
+.github/ISSUE_TEMPLATE/
+.github/pull_request_template.md
+security/
