@@ -8,10 +8,11 @@
     "node": ">=22"
   },
   "scripts": {
-    "lint": "eslint .",
+    "render:dev": "node scripts/render-dev-files.mjs",
+    "lint": "npm run render:dev && eslint .",
     "format:check": "prettier --check .",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest run",
+    "typecheck": "npm run render:dev && tsc --noEmit",
+    "test": "npm run render:dev && vitest run",
     "storybook": "storybook dev -p 6006 --no-open --disable-telemetry",
     "storybook:build": "storybook build -o .local/storybook-static --disable-telemetry",
     "secrets:check": "node scripts/secret-scan.mjs",
@@ -21,7 +22,7 @@
     "tokens:docs": "node scripts/build-token-docs.mjs",
     "tokens:check": "node scripts/build-tokens.mjs --check && node scripts/build-token-docs.mjs --check",
     "package:check": "node scripts/package-guard.mjs",
-    "check": "npm run lint && npm run format:check && npm run typecheck && npm run test && npm run tokens:check && npm run package:check && npm run secrets:check && npm run ioc:check && npm run links:check && npm run storybook:build"
+    "check": "npm run render:dev && npm run lint && npm run format:check && npm run typecheck && npm run test && npm run tokens:check && npm run package:check && npm run secrets:check && npm run ioc:check && npm run links:check && npm run storybook:build"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
@@ -31,6 +32,9 @@
     "@storybook/addon-a11y": "10.6.7",
     "@storybook/addon-docs": "10.6.7",
     "@storybook/react-vite": "10.6.7",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "5.2.0",
@@ -41,6 +45,7 @@
     "eslint-plugin-react-refresh": "0.5.7",
     "eslint-plugin-simple-import-sort": "14.0.0",
     "globals": "16.5.0",
+    "jsdom": "30.1.2",
     "prettier": "3.9.10",
     "react": "19.3.0",
     "react-dom": "19.3.0",
@@ -49,5 +54,17 @@
     "typescript-eslint": "8.73.0",
     "vite": "6.4.5",
     "vitest": "5.0.3"
+  },
+  "dependencies": {
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "1.52.0",
+    "radix-ui": "1.7.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router": "8.4.0",
+    "sonner": "2.0.8",
+    "tailwind-merge": "3.7.0",
+    "vaul": "1.1.2"
   }
 }
