@@ -1,4 +1,4 @@
 {
   "extends": "@sirloinbh/tsconfig/react-app.json",
-  "include": ["src", "stories", ".storybook/**/*", "*.config.ts"]
+  "include": ["src", "stories", "showcase", ".storybook/**/*", "*.config.ts"]
 }
