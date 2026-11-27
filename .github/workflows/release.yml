@@ -1,0 +1,83 @@
+# Release of the design system. Pushing a tag v<version> creates the GitHub Release from CHANGELOG.md and opens the PR in
+# sirloinbh/project-standards that raises the pin (versions.json "design-system"); project-standards review and its sync waves
+# deliver the release to the apps (ADR-0031, #1173). The user pushes the tag, like the package tags (publish.yml).
+# The tag name is never put into the shell directly: it is passed as an environment variable and its format is checked first.
+# The pin PR step is skipped with a warning until the App variables exist (user step, docs/release.md).
+name: release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write # create the Release
+
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+
+env:
+  TAG: ${{ github.ref_name }}
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check the tag format
+        id: tag
+        run: |
+          if [[ ! "$TAG" =~ ^v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+            echo "Tag format is not v<x.y.z>: $TAG" >&2
+            exit 1
+          fi
+          echo "version=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24.21.0'
+          package-manager-cache: false
+
+      - name: Checks (all of npm run check, the tag is the newest CHANGELOG version)
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.tag.outputs.version }}
+        run: |
+          npm ci
+          npm run check
+          test "$(grep -m1 -oE '^## [0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | cut -c4-)" = "$VERSION" || { echo "CHANGELOG.md newest version is not $VERSION" >&2; exit 1; }
+          node scripts/release-plan.mjs --notes "$VERSION" > changes.md
+
+      - name: Create the Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.tag.outputs.version }}
+        run: |
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            echo "The Release for $TAG already exists, skipping"
+            exit 0
+          fi
+          {
+            echo "## Changes"
+            echo
+            cat changes.md
+            echo
+            echo "## Release record"
+            echo
+            echo "- Version: $VERSION"
+            echo "- Commit: $GITHUB_SHA"
+          } > notes.md
+          gh release create "$TAG" --title "design-system $TAG" --notes-file notes.md --verify-tag
+
+      - name: Open the pin PR in project-standards
+        env:
+          PIN_APP_ID: ${{ vars.PIN_APP_ID }}
+          PIN_APP_PRIVATE_KEY: ${{ secrets.PIN_APP_PRIVATE_KEY }}
+          VERSION: ${{ steps.tag.outputs.version }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$PIN_APP_ID" ]; then
+            echo "::warning::PIN_APP_ID is not set, so the pin PR was not opened. Raise the pin in project-standards by hand."
+            exit 0
+          fi
+          node scripts/open-pin-pr.mjs "$VERSION" "$GITHUB_SHA" changes.md
