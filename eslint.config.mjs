@@ -21,4 +21,6 @@ export default [
       tsconfigRootDir: import.meta.dirname,
     },
   ),
+  // Input (src/components/ui) renders a native <input>, so a <label> wrapping it counts as labelled (the apps set the same).
+  { settings: { 'jsx-a11y-x': { components: { Input: 'input' } } } },
 ];

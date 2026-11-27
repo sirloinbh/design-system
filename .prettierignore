@@ -13,3 +13,20 @@ docs/design-tokens.md
 packages/design-tokens/tokens.css
 packages/design-tokens/tailwind.css
 packages/design-tokens/fonts/
+src/lib/apps.ts
+src/lib/theme-config.ts
+src/lib/ai-config.ts
+src/lib/auth-config.ts
+public/theme-init.js
+*.tmpl
+# The first kit files moved from project-standards byte for byte, and the apps do not format them either, so they are
+# not reformatted here (the sync check compares hashes). New components go in their own folders and are formatted.
+src/components/ui/
+src/components/layout/
+src/lib/
+src/health.ts
+src/health.test.ts
+src/auth-origin.ts
+src/auth-origin.test.ts
+src/session-watch.ts
+src/session-watch.test.ts
