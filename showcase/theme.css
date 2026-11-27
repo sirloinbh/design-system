@@ -1,5 +1,22 @@
-/* The shared tokens and the Pretendard font from the tokens package in this repository. */
-@import '../packages/design-tokens/tokens.css';
+/* Tailwind, the shared tokens and the Pretendard font from the tokens package in this repository. */
+@import 'tailwindcss';
+@import '../packages/design-tokens/tailwind.css';
+@import 'tw-animate-css';
+
+@source '../src';
+@source '../stories';
+@source '../showcase';
+
+/* The toolbar's Touch mode sets data-pointer="coarse" on <html> (showcase/tools.ts), because a page cannot
+   force the (pointer: coarse) media query. pointer-coarse: utilities answer to either. */
+@custom-variant pointer-coarse {
+  @media (pointer: coarse) {
+    @slot;
+  }
+  &:where([data-pointer='coarse'], [data-pointer='coarse'] *) {
+    @slot;
+  }
+}
 
 html,
 body {

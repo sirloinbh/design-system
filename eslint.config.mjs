@@ -27,6 +27,8 @@ export default [
       tsconfigRootDir: import.meta.dirname,
     },
   ),
+  // Input (src/components/ui) renders a native <input>, so a <label> wrapping it counts as labelled (the apps set the same).
+  { settings: { 'jsx-a11y-x': { components: { Input: 'input' } } } },
   // Storybook needs a default export in story files and in its config files.
   {
     files: ['stories/**/*.stories.tsx', '.storybook/*.{ts,tsx}'],

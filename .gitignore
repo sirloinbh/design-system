@@ -8,3 +8,10 @@ node_modules/
 *.pem
 *.tfstate
 *.tfstate.*
+
+# Rendered from the *.tmpl files by scripts/render-dev-files.mjs
+src/lib/apps.ts
+src/lib/theme-config.ts
+src/lib/ai-config.ts
+src/lib/auth-config.ts
+public/theme-init.js
