@@ -71,12 +71,19 @@ This list feeds sirloinbh/project-standards#1177. A path is under `frontend/src/
 
 Not counted as copies: `ThemeToggle`, `AppShell`, `AppSwitcher`, `AiShell`, `SignInGate`, the service worker and the auth files exist in all 8 apps by design. They come from the sync and are owned by the layout work, not by this survey.
 
-## 3. Proposal
+## 3. Decision
 
-Proposed to register as cards under #65, in this order:
+The user accepted candidates A to H on 2026-11-28, one card each under #65:
 
-1. **A** month helpers (S), **B** KRW format (S) and **C** `DescriptionList` (S): small, found in 3 to 6 apps.
-2. **D** return-focus hook (M): found in 3 apps, and a keyboard accessibility problem each app solves differently.
-3. **E** `useCopyText` (S) and **F** `useUrlParam` (M): optional, found in 2 and 4 apps.
+| Candidate                     | Card | Priority | Note                                                                                          |
+| ----------------------------- | ---- | -------- | --------------------------------------------------------------------------------------------- |
+| A month helpers               | #81  | P2       |                                                                                               |
+| B currency format             | #74  | P2       |                                                                                               |
+| C `DescriptionList`           | #75  | P2       |                                                                                               |
+| D return focus after a dialog | #76  | P1       | keyboard accessibility                                                                        |
+| E `useCopyText`               | #77  | P2       |                                                                                               |
+| F `useUrlParam`               | #78  | P2       |                                                                                               |
+| G stored draft hook           | #79  | P3       | The survey rated it thin (two apps); the card starts by confirming the shared API is worth it |
+| H retry keys                  | #80  | P3       | The survey rated it thin (two apps); the card starts by confirming the shared API is worth it |
 
-Not proposed: **G**, **H** (two apps, different shapes; revisit when a third app needs it) and **I** (already covered by `Badge`).
+Not accepted as a component: **I** (status to `Badge` mapping), because `Badge` already covers it.

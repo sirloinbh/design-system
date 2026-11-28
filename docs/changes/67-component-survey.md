@@ -11,9 +11,9 @@
 - No CHANGELOG line: the release PR writes it from this record.
 - Scan method and limits are in the survey: a name and pattern scan of 703 source files, read-only on `origin/main` of each app. Counts are lower bounds.
 
-## Still open on the card
+## Decision and cards
 
-- The user approves which candidates become components (through the coordinator); then one card per accepted candidate is registered under #65.
+- The user accepted candidates A to H on 2026-11-28 (relayed by the coordinator). One card each is registered under #65: A #81, B #74, C #75, D #76, E #77, F #78, G #79, H #80. G and H say the survey rated them thin.
 - The local-copy list is posted as a comment on sirloinbh/project-standards#1177.
 
 ## Verification
