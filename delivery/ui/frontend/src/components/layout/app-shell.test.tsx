@@ -81,7 +81,7 @@ test('the top bar shows the app icon, not the app name; the home link is named b
   expect(home).toHaveAttribute('href', '/');
   expect(home).toHaveAttribute('title', 'Sample App');
   expect(home.querySelector('svg')).toHaveAttribute('aria-hidden', 'true');
-  expect(home).toHaveClass('min-h-11', 'min-w-11');
+  expect(home).toHaveClass('min-h-11', 'min-w-11', 'cursor-pointer', 'pointer-coarse:min-h-12', 'pointer-coarse:min-w-12');
   expect(header).not.toHaveTextContent('Sample App');
 });
 
@@ -90,4 +90,18 @@ test('the app name stays as the menu sheet title and the footer text (#57)', () 
   expect(screen.getByRole('contentinfo')).toHaveTextContent('Sample App');
   fireEvent.click(screen.getByRole('button', { name: 'Open menu' }));
   expect(screen.getByRole('dialog', { name: 'Sample App' })).toBeInTheDocument();
+});
+
+test('menu items are 40px tall, 48px on touch screens (ui-spec)', () => {
+  renderAt('/');
+  const sidebar = document.querySelector('aside') as HTMLElement;
+  const item = within(sidebar).getAllByRole('link')[0];
+  expect(item).toHaveClass('min-h-10', 'pointer-coarse:min-h-12');
+});
+
+test('the top bar and the footer use the page padding and honour the side safe areas (ui-spec)', () => {
+  renderAt('/');
+  const row = screen.getByRole('banner').firstElementChild;
+  expect(row).toHaveClass('pr-[max(env(safe-area-inset-right),var(--page-x))]', 'pl-[max(env(safe-area-inset-left),var(--page-x))]');
+  expect(screen.getByRole('contentinfo')).toHaveClass('px-[max(var(--page-x),env(safe-area-inset-left))]');
 });
