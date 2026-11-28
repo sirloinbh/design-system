@@ -114,7 +114,7 @@ function AppShell({
           </Link>
           <div className="ml-auto flex items-center gap-1">
             <Button variant="ghost" size="icon" ref={searchButton}
-              aria-label="Search" aria-keyshortcuts="Control+K Meta+K /" onClick={openSearch}>
+              aria-label="Search this app" aria-keyshortcuts="Control+K Meta+K /" onClick={openSearch}>
               <SearchIcon aria-hidden />
             </Button>
             {actions}
