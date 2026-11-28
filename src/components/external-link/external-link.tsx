@@ -22,7 +22,7 @@ function ExternalLink({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'inline-flex min-h-11 cursor-pointer items-center gap-1 rounded-sm text-primary underline underline-offset-4 outline-none pointer-coarse:min-h-12 focus-visible:ring-[3px] focus-visible:ring-ring/50',
+        'inline-flex min-h-11 cursor-pointer items-center gap-1 rounded-sm text-primary underline underline-offset-4 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 pointer-coarse:min-h-12',
         className,
       )}
       {...props}
