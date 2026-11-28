@@ -1,7 +1,14 @@
 import { expect, test } from 'vitest';
 
 import { optionalNumber } from '../components/ui/number-step';
-import { formatCurrency, formatDate, formatDuration, formatNumber, plural, serviceToday } from './format';
+import {
+  formatCurrency,
+  formatDate,
+  formatDuration,
+  formatNumber,
+  plural,
+  serviceToday,
+} from './format';
 
 test('plural picks the singular only for exactly one and groups the count', () => {
   expect(plural(1, 'set')).toBe('1 set');

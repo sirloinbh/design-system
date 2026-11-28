@@ -20,10 +20,14 @@ src/lib/auth-config.ts
 public/theme-init.js
 *.tmpl
 # The first kit files moved from project-standards byte for byte, and the apps do not format them either, so they are
-# not reformatted here (the sync check compares hashes). New components go in their own folders and are formatted.
+# not reformatted here (the sync check compares hashes). New components and new `src/lib/` files are formatted (the apps check them, v1.1.0).
 src/components/ui/
 src/components/layout/
-src/lib/
+src/lib/ai-chat.test.ts
+src/lib/ai-chat.ts
+src/lib/api.test.ts
+src/lib/use-ai-chat.ts
+src/lib/use-notice.ts
 src/health.ts
 src/health.test.ts
 src/auth-origin.ts

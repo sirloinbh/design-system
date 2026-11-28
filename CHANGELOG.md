@@ -2,6 +2,30 @@
 
 One section per release of this repository (the package `@sirloinbh/design-tokens` has its own changelog in `packages/design-tokens/`). Add the section in the release PR, newest first, using `node scripts/release-plan.mjs` for the version and the draft. How a release works: [docs/release.md](docs/release.md).
 
+## 1.1.0
+
+The top bar shows the app's icon instead of its name, and the kit follows the new UI spec. App changes: none needed (minor). Apps receive the icon in the top bar (the registry `icon` value, rendered into `lib/apps.ts` since project-standards#1213), the spec alignment (40px controls, 44px press areas, 16px page padding, new `destructive-foreground`, `overlay`, `text-stat` and `text-title` tokens), the top bar search text, and new helpers: `formatCurrency`, month helpers, a `DescriptionList`, and hooks for returning focus, copying text and filter state in the URL. This section covers main since v1.0.1; v1.0.2 was cut from `release/1.0.x`, so its #91 is already in the section below.
+
+Changes:
+
+- #57 Show the app icon instead of the app name in the top bar (minor; docs/changes/57-app-icon.md)
+- #59 Menu order and screen text rules (patch; docs/changes/59-menu-order-screen-text.md)
+- #67 Find UI pieces used in two or more places in the apps (patch; docs/changes/67-component-survey.md)
+- #68 One spec for every UI element (patch; docs/changes/68-ui-spec.md)
+- #69 Align the shared components with the UI spec (patch; docs/changes/69-align-kit-with-spec.md)
+- #70 Unify icons: one icon per meaning and one size scale (minor; docs/changes/70-icons.md)
+- #74 Add a currency formatter to the format helpers (patch; docs/changes/74-format-currency.md)
+- #75 Add a DescriptionList for label and value grids (patch; docs/changes/75-description-list.md)
+- #76 Add a hook that returns focus after a dialog closes (patch; docs/changes/76-return-focus-hook.md)
+- #77 Add a copy-to-clipboard hook with a notice (patch; docs/changes/77-copy-text-hook.md)
+- #78 Add a hook for filter state in the URL (patch; docs/changes/78-url-param-hook.md)
+- #80 Share the retry key helper (patch; docs/changes/80-retry-keys.md)
+- #81 Add month helpers to the period helpers (patch; docs/changes/81-month-helpers.md)
+- #94 Add the shared pieces from #74 to #81 to the UI components doc (patch; docs/changes/94-ui-components-shared-pieces.md)
+- #95 Name the top bar search "Search this app" in the docs (patch; docs/changes/95-top-bar-search-text.md)
+- #99 Align AppShell with the UI spec (patch; docs/changes/99-appshell-spec.md)
+- #102 Release v1.1.0: CHANGELOG section (none; docs/changes/102-release-1-1-0.md)
+
 ## 1.0.2
 
 Fixes the v1.0.1 pin: the top bar search that 1.0.1 added (#58, missing from the 1.0.1 notes) was named "Search", the same name as the apps' own search buttons and fields, and two apps' tests found two elements. App changes: none needed (patch). Apps receive the top bar button and the search input named "Search this app". Cut from `release/1.0.x` (v1.0.1 plus #91); main's newer changes come in the next release.
