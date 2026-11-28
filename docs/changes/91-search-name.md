@@ -13,15 +13,15 @@
 
 - `src/components/layout/app-shell.tsx`: the top bar button is named "Search this app".
 - `src/components/search/search-dialog.tsx`: the combobox is named "Search this app". The hidden dialog title stays "Search".
-- `src/components/search/search-dialog.test.tsx`: the new name.
-- `docs/layout.md` and `docs/ui-components.md` still say "Search" on this branch: they are showcase pages with screenshot baselines, and the docs are not delivered to the apps. The main PR updates them with new baselines.
+- `src/components/search/search-dialog.test.tsx`: the new name, and a regression test: an app button and field named "Search" next to the top bar are each found once.
+- `docs/layout.md` and `docs/ui-components.md` still say "Search": they are showcase pages with screenshot baselines, and the docs are not delivered to the apps. #95 updates the text and the baselines.
 - `delivery/ui/`: regenerated with `npm run delivery`.
 
 App changes: none needed. App tests that look for their own "Search" button or field find one element again.
 
 ## Release
 
-1.0.2 is cut from `release/1.0.x` (v1.0.1 plus this change), not from main: main also has #73, whose `{{project.icon}}` placeholder needs sirloinbh/project-standards#1213 before it can reach the apps. The same change goes to main in a separate PR.
+1.0.2 is cut from `release/1.0.x` (v1.0.1 plus this change), not from main: main also has #73, whose `{{project.icon}}` placeholder needs sirloinbh/project-standards#1213 before it can reach the apps. The same change goes to main in a separate PR, with the 1.0.2 CHANGELOG section.
 
 ## Verification
 

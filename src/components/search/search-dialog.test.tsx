@@ -31,6 +31,21 @@ afterEach(() => {
   vi.useRealTimers();
 });
 
+test('the top bar search does not take the name of an app search button or field (#91)', () => {
+  render(
+    <MemoryRouter initialEntries={['/']}>
+      <AppShell appName="Sample App" nav={nav}>
+        <label htmlFor="app-search">Search</label>
+        <input id="app-search" type="search" />
+        <button type="button">Search</button>
+      </AppShell>
+    </MemoryRouter>,
+  );
+  expect(screen.getByLabelText('Search')).toHaveAttribute('id', 'app-search');
+  expect(screen.getAllByRole('button', { name: 'Search' })).toHaveLength(1);
+  expect(screen.getByRole('button', { name: 'Search this app' })).toBeInTheDocument();
+});
+
 test('the top bar button opens the search and Escape closes it and returns focus', async () => {
   renderShell();
   const button = screen.getByRole('button', { name: 'Search this app' });
