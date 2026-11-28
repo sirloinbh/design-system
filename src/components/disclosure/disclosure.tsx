@@ -35,7 +35,7 @@ function Disclosure({
       <summary
         data-slot="disclosure-summary"
         className={cn(
-          'flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 rounded-md px-4 py-2 text-body-sm font-medium outline-none pointer-coarse:min-h-12 focus-visible:ring-[3px] focus-visible:ring-ring/50 [&::-webkit-details-marker]:hidden',
+          'flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 rounded-md px-4 py-2 text-body-sm font-medium outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 pointer-coarse:min-h-12 [&::-webkit-details-marker]:hidden',
           summaryClassName,
         )}
       >

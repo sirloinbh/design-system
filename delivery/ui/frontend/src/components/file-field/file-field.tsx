@@ -22,7 +22,7 @@ function FileField({
     <label
       data-slot="file-field"
       className={cn(
-        'relative inline-flex min-h-10 cursor-pointer items-center justify-center gap-2 rounded-md border border-input bg-background px-4 py-2 text-body-sm font-medium transition-colors pointer-coarse:min-h-12 hover:bg-accent hover:text-accent-foreground has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50 has-disabled:cursor-not-allowed has-disabled:opacity-50',
+        'relative inline-flex min-h-10 cursor-pointer items-center justify-center gap-2 rounded-md border border-input bg-background px-4 py-2 text-body-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50 has-disabled:cursor-not-allowed has-disabled:opacity-50 pointer-coarse:min-h-12',
         className,
       )}
     >

@@ -50,7 +50,7 @@ function ScoreField({
         {scoreValues(min, max, step).map((n) => (
           <label
             key={n}
-            className="relative inline-flex min-h-10 min-w-10 cursor-pointer items-center justify-center rounded-md border border-input bg-background px-3 text-body-sm font-medium transition-colors pointer-coarse:min-h-12 pointer-coarse:min-w-12 hover:bg-accent has-checked:border-primary has-checked:bg-primary has-checked:text-primary-foreground has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50 has-disabled:cursor-not-allowed has-disabled:opacity-50"
+            className="relative inline-flex min-h-10 min-w-10 cursor-pointer items-center justify-center rounded-md border border-input bg-background px-3 text-body-sm font-medium transition-colors hover:bg-accent has-checked:border-primary has-checked:bg-primary has-checked:text-primary-foreground has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50 has-disabled:cursor-not-allowed has-disabled:opacity-50 pointer-coarse:min-h-12 pointer-coarse:min-w-12"
           >
             <input
               type="radio"
