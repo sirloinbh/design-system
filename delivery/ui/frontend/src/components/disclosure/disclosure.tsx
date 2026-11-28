@@ -1,6 +1,6 @@
-import { ChevronDown } from 'lucide-react';
 import type * as React from 'react';
 
+import { ExpandIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 
 // A native <details>: the browser handles open and close, the keyboard (Enter and Space on the summary) and the
@@ -40,7 +40,7 @@ function Disclosure({
         )}
       >
         <span className="min-w-0 break-keep">{summary}</span>
-        <ChevronDown
+        <ExpandIcon
           aria-hidden="true"
           className="size-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
         />

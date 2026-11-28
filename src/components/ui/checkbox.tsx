@@ -1,7 +1,7 @@
-import { CheckIcon } from 'lucide-react';
 import { Checkbox as CheckboxPrimitive } from 'radix-ui';
 import type * as React from 'react';
 
+import { ConfirmIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 
 // The box stays 16px; on touch screens an invisible ::after area makes it 44×44px to tap.
@@ -18,7 +18,7 @@ function Checkbox({ className, ...props }: React.ComponentProps<typeof CheckboxP
       {...props}
     >
       <CheckboxPrimitive.Indicator data-slot="checkbox-indicator" className="flex items-center justify-center text-current">
-        <CheckIcon className="size-3.5" aria-hidden />
+        <ConfirmIcon className="size-3.5" aria-hidden />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   );

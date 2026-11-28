@@ -1,6 +1,6 @@
-import { ExternalLink as ExternalLinkIcon } from 'lucide-react';
 import type * as React from 'react';
 
+import { ExternalLinkIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 import { safeWebUrl } from './web-link';
 
@@ -28,7 +28,7 @@ function ExternalLink({
       {...props}
     >
       {children} <span className="sr-only">(opens in a new tab)</span>
-      <ExternalLinkIcon aria-hidden="true" className="size-3.5 shrink-0" />
+      <ExternalLinkIcon aria-hidden="true" className="size-4 shrink-0" />
     </a>
   );
 }

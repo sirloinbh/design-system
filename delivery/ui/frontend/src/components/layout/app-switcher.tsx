@@ -1,6 +1,5 @@
-import { CheckIcon, LayoutGridIcon } from 'lucide-react';
-
 import { APPS, CURRENT_APP } from '../../lib/apps';
+import { AppSwitcherIcon, ConfirmIcon } from '../../lib/icons';
 import { Button } from '../ui/button';
 import {
   DropdownMenu,
@@ -18,7 +17,7 @@ function AppSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" aria-label="Switch app">
-          <LayoutGridIcon aria-hidden />
+          <AppSwitcherIcon aria-hidden />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -29,7 +28,7 @@ function AppSwitcher() {
             <DropdownMenuItem key={name} asChild>
               <a href={href} aria-current={current ? 'page' : undefined}>
                 <span className="flex-1">{label}</span>
-                {current ? <CheckIcon aria-hidden /> : null}
+                {current ? <ConfirmIcon aria-hidden /> : null}
               </a>
             </DropdownMenuItem>
           );

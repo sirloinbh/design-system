@@ -1,7 +1,7 @@
-import { XIcon } from 'lucide-react';
 import type * as React from 'react';
 import { Drawer as DrawerPrimitive } from 'vaul';
 
+import { CloseIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 
 // A bottom panel that can be dragged down to close (vaul). Use it on phones for short choices and forms;
@@ -49,7 +49,7 @@ function DrawerContent({
             data-slot="drawer-close-button"
             className="absolute top-3 right-3 flex size-8 items-center justify-center rounded-sm opacity-70 transition-opacity outline-none hover:opacity-100 focus-visible:ring-[3px] focus-visible:ring-ring/50 pointer-coarse:size-11 [&_svg]:size-4"
           >
-            <XIcon aria-hidden />
+            <CloseIcon aria-hidden />
             <span className="sr-only">Close</span>
           </DrawerPrimitive.Close>
         ) : null}

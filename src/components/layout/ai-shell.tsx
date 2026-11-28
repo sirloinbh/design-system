@@ -1,4 +1,3 @@
-import { BotIcon, RotateCcwIcon, SendIcon } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router';
 
@@ -6,6 +5,7 @@ import { aiOrigin } from '../../lib/ai-chat';
 import { AI_SHELL } from '../../lib/ai-config';
 import { CURRENT_APP } from '../../lib/apps';
 import { ROOT_DOMAIN } from '../../lib/auth-config';
+import { AssistantIcon, RetryIcon, SendIcon } from '../../lib/icons';
 import { type ToolCallView, useAiChat } from '../../lib/use-ai-chat';
 import { Button } from '../ui/button';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet';
@@ -143,7 +143,7 @@ function ChatPanel({
           <SendIcon aria-hidden />
         </Button>
         <Button type="button" size="icon" variant="ghost" aria-label="New conversation" onClick={reset}>
-          <RotateCcwIcon aria-hidden />
+          <RetryIcon aria-hidden />
         </Button>
       </form>
     </>
@@ -159,7 +159,7 @@ function AiShellPanel({ origin }: { origin: string }) {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" aria-label="AI assistant">
-          <BotIcon aria-hidden />
+          <AssistantIcon aria-hidden />
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-full sm:max-w-md">

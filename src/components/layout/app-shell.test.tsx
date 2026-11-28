@@ -1,14 +1,14 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
-import { HomeIcon, NotebookPenIcon } from 'lucide-react';
 import { MemoryRouter } from 'react-router';
 import { afterEach, expect, test } from 'vitest';
 
+import { DayLogIcon, HomeIcon } from '../../lib/icons';
 import { DARK_ONLY } from '../../lib/theme-config';
 import { AppShell, type NavItem } from './app-shell';
 
 const nav: NavItem[] = [
   { to: '/', label: 'Overview', icon: HomeIcon },
-  { to: '/journal', label: 'Journal', icon: NotebookPenIcon },
+  { to: '/journal', label: 'Journal', icon: DayLogIcon },
 ];
 
 function renderAt(path: string) {

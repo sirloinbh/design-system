@@ -1,6 +1,6 @@
-import { MinusIcon, PlusIcon } from 'lucide-react';
 import { type ComponentProps, useState } from 'react';
 
+import { AddIcon, RemoveIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 import { Button } from './button';
 import { Input } from './input';
@@ -55,7 +55,7 @@ export function NumberInput({
           if (!atMin) onValueChange(stepValue(value, -step, min, max));
         }}
       >
-        <MinusIcon aria-hidden />
+        <RemoveIcon aria-hidden />
       </Button>
       <Input
         {...props}
@@ -80,7 +80,7 @@ export function NumberInput({
           if (!atMax) onValueChange(stepValue(value, step, min, max));
         }}
       >
-        <PlusIcon aria-hidden />
+        <AddIcon aria-hidden />
       </Button>
     </div>
   );
