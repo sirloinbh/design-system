@@ -65,7 +65,7 @@ const stripMarkdown = (s: string) =>
 export function docEntries(docs: DocSource[]): SearchEntry[] {
   const entries: SearchEntry[] = [];
   for (const doc of docs) {
-    const path = `/story/guidelines-${doc.id}--page`;
+    const path = `/docs/guidelines-${doc.id}--docs`;
     let heading = doc.title;
     for (const line of doc.source.split('\n')) {
       const h = /^#{2,3}\s+(.+)$/.exec(line);
