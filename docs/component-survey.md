@@ -75,15 +75,15 @@ Not counted as copies: `ThemeToggle`, `AppShell`, `AppSwitcher`, `AiShell`, `Sig
 
 The user accepted candidates A to H on 2026-11-28, one card each under #65:
 
-| Candidate                     | Card | Priority | Note                                                                                          |
-| ----------------------------- | ---- | -------- | --------------------------------------------------------------------------------------------- |
-| A month helpers               | #81  | P2       |                                                                                               |
-| B currency format             | #74  | P2       |                                                                                               |
-| C `DescriptionList`           | #75  | P2       |                                                                                               |
-| D return focus after a dialog | #76  | P1       | keyboard accessibility                                                                        |
-| E `useCopyText`               | #77  | P2       |                                                                                               |
-| F `useUrlParam`               | #78  | P2       |                                                                                               |
-| G stored draft hook           | #79  | P3       | The survey rated it thin (two apps); the card starts by confirming the shared API is worth it |
-| H retry keys                  | #80  | P3       | The survey rated it thin (two apps); the card starts by confirming the shared API is worth it |
+| Candidate                     | Card | Priority | Note                                                                                                                                                                                   |
+| ----------------------------- | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A month helpers               | #81  | P2       |                                                                                                                                                                                        |
+| B currency format             | #74  | P2       |                                                                                                                                                                                        |
+| C `DescriptionList`           | #75  | P2       |                                                                                                                                                                                        |
+| D return focus after a dialog | #76  | P1       | keyboard accessibility                                                                                                                                                                 |
+| E `useCopyText`               | #77  | P2       |                                                                                                                                                                                        |
+| F `useUrlParam`               | #78  | P2       |                                                                                                                                                                                        |
+| G stored draft hook           | #79  | P3       | Closed as not planned: the card confirmed it is not worth it. The two drafts share only about 15 lines of storage plumbing; the schema, lifetime and conflict rules are each app's own |
+| H retry keys                  | #80  | P3       | The card confirmed it is worth it: workout-memo has a key generator with a fallback for plain-http pages that health-log's copy lacks (`crypto.randomUUID` is secure-page only)        |
 
 Not accepted as a component: **I** (status to `Badge` mapping), because `Badge` already covers it.
