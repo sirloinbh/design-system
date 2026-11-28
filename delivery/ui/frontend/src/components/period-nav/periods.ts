@@ -85,3 +85,24 @@ export function rangeLabel(from: string, to: string) {
     ? dayLabel(from)
     : `${shortFormat.format(utc(from))} – ${shortFormat.format(utc(to))}`;
 }
+
+/** A real month in `YYYY-MM` form, from 0001-01 to 9999-12. */
+export const isMonth = (value: string) => /^(?!0000)\d{4}-(0[1-9]|1[0-2])$/.test(value);
+
+/** The month `delta` months after `month` ("2026-12", 1 gives "2027-01"). It stops at 0001-01 and 9999-12. */
+export function shiftMonth(month: string, delta: number) {
+  const [year, number] = month.split('-').map(Number);
+  const index = Math.min(Math.max(year * 12 + (number - 1) + delta, 12), 9999 * 12 + 11);
+  return `${String(Math.floor(index / 12)).padStart(4, '0')}-${String((index % 12) + 1).padStart(2, '0')}`;
+}
+
+const monthFormats = {
+  long: new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' }),
+  short: new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' }),
+};
+
+/** "October 2026" (`long`, the default) or "Oct" (`short`, for a chart axis). */
+export const monthLabel = (month: string, style: 'long' | 'short' = 'long') => {
+  const [year, number] = month.split('-').map(Number);
+  return monthFormats[style].format(new Date(Date.UTC(year, number - 1, 1)));
+};
