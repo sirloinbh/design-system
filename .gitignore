@@ -1,19 +1,32 @@
+# Managed file. Edit it in sirloinbh/project-standards templates/common/
 node_modules/
+dist/
 .env
-.env.*
-!.env.example
+*.log
+.terraform/
+*.tfstate*
+*.tfplan
+backups/
 .local/
 .bkit/
 .playwright-mcp/
+.claude/settings.local.json
+*.tfvars
+test-results/
+playwright-report/
+blob-report/
+coverage/
+.lighthouseci/
+*.tsbuildinfo
+# --- project ---
+.env.*
+!.env.example
 *.pem
 *.tfstate
 *.tfstate.*
-
 # Rendered from the *.tmpl files by scripts/render-dev-files.mjs
 src/lib/apps.ts
 src/lib/theme-config.ts
 src/lib/ai-config.ts
 src/lib/auth-config.ts
 public/theme-init.js
-playwright-report/
-test-results/
