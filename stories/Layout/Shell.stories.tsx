@@ -12,6 +12,7 @@ import { MemoryRouter } from 'react-router';
 import { AppShell } from '../../src/components/layout/app-shell';
 import { AppSwitcher } from '../../src/components/layout/app-switcher';
 import { ThemeToggle } from '../../src/components/layout/theme-toggle';
+import type { SearchResult } from '../../src/components/search/search-match';
 import { PageHeader } from '../../src/components/ui/page-header';
 
 const meta = {
@@ -70,5 +71,48 @@ export const Controls: Story = {
       <AppSwitcher />
       <ThemeToggle />
     </div>
+  ),
+};
+
+const SEARCH_CONTENT: SearchResult[] = [
+  { title: 'Bench press, 5 x 5', href: '/', kind: 'content', snippet: 'Day log, Nov 24' },
+  { title: 'Bench press record', href: '/exercises', kind: 'content', snippet: 'Exercises' },
+];
+
+export const Search: Story = {
+  name: 'Search',
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Press the Search button, Ctrl+K or "/". Menus are always searched; "Backup" is a page outside the menu and "bench" returns content from a mock searchContent.',
+      },
+    },
+  },
+  render: () => (
+    <AppShell
+      appName="Workout memo"
+      nav={NAV}
+      pages={[{ title: 'Backup', path: '/settings/backup', keywords: ['export', 'download'] }]}
+      searchContent={(query, signal) =>
+        new Promise<SearchResult[]>((resolve, reject) => {
+          const timer = setTimeout(
+            () =>
+              resolve(
+                SEARCH_CONTENT.filter((r) => r.title.toLowerCase().includes(query.toLowerCase())),
+              ),
+            400,
+          );
+          signal.addEventListener('abort', () => {
+            clearTimeout(timer);
+            reject(new DOMException('Aborted', 'AbortError'));
+          });
+        })
+      }
+    >
+      <main id="main" className="px-(--page-x) py-6">
+        <PageHeader title="Day log" description="Try the search from the top bar." />
+      </main>
+    </AppShell>
   ),
 };
