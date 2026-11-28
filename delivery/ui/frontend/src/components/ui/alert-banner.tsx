@@ -18,7 +18,7 @@ export function AlertBanner({
       role="alert"
       data-slot="alert-banner"
       className={cn(
-        'flex flex-wrap items-center gap-x-3 gap-y-2 rounded-md border border-l-4 border-destructive/40 border-l-destructive bg-destructive/10 px-3.5 py-3 text-sm text-foreground',
+        'flex flex-wrap items-center gap-x-3 gap-y-2 rounded-md border border-l-4 border-destructive/40 border-l-destructive bg-destructive/10 px-4 py-3 text-body-sm text-foreground',
         className,
       )}
       {...props}

@@ -32,7 +32,7 @@ function DrawerContent({
     <DrawerPrimitive.Portal data-slot="drawer-portal">
       <DrawerPrimitive.Overlay
         data-slot="drawer-overlay"
-        className="fixed inset-0 z-[var(--z-drawer)] bg-black/50 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0"
+        className="fixed inset-0 z-[var(--z-drawer)] bg-overlay data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0"
       />
       <DrawerPrimitive.Content
         data-slot="drawer-content"
@@ -42,12 +42,12 @@ function DrawerContent({
         )}
         {...props}
       >
-        <div aria-hidden className="mx-auto mt-4 h-2 w-[100px] shrink-0 rounded-full bg-muted" />
+        <div aria-hidden className="mx-auto mt-4 h-2 w-24 shrink-0 rounded-full bg-muted" />
         {children}
         {showCloseButton ? (
           <DrawerPrimitive.Close
             data-slot="drawer-close-button"
-            className="absolute top-3 right-3 flex size-8 items-center justify-center rounded-sm opacity-70 transition-opacity outline-none hover:opacity-100 focus-visible:ring-[3px] focus-visible:ring-ring/50 pointer-coarse:size-11 [&_svg]:size-4"
+            className="absolute top-3 right-3 flex size-10 cursor-pointer items-center justify-center rounded-sm opacity-70 transition-opacity outline-none hover:opacity-100 focus-visible:ring-[3px] focus-visible:ring-ring/50 pointer-coarse:size-12 [&_svg]:size-4"
           >
             <CloseIcon aria-hidden />
             <span className="sr-only">Close</span>
@@ -67,7 +67,7 @@ function DrawerFooter({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 function DrawerTitle({ className, ...props }: React.ComponentProps<typeof DrawerPrimitive.Title>) {
-  return <DrawerPrimitive.Title data-slot="drawer-title" className={cn('font-semibold text-foreground', className)} {...props} />;
+  return <DrawerPrimitive.Title data-slot="drawer-title" className={cn('text-title', className)} {...props} />;
 }
 
 function DrawerDescription({ className, ...props }: React.ComponentProps<typeof DrawerPrimitive.Description>) {

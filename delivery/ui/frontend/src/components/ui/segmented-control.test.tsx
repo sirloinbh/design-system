@@ -73,9 +73,19 @@ test('focus enters on the selected option and arrow keys move it', async () => {
   await waitFor(() => expect(screen.getByRole('radio', { name: '1 month' })).toHaveFocus());
 });
 
-test('touch screens get 44px tall segments (#1103)', () => {
+test('segments are 40px tall, 48px on touch screens (#1103)', () => {
   render(<Period />);
   for (const name of ['1 week', '1 month', '1 year']) {
-    expect(screen.getByRole('radio', { name })).toHaveClass('pointer-coarse:min-h-11');
+    expect(screen.getByRole('radio', { name })).toHaveClass('min-h-10', 'pointer-coarse:min-h-12');
   }
+});
+
+test('a disabled group cannot be changed and looks disabled (ui-spec)', () => {
+  const onValueChange = vi.fn();
+  render(<SegmentedControl label="Period" options={options} value="week" onValueChange={onValueChange} disabled />);
+  const segment = screen.getByRole('radio', { name: '1 month' });
+  expect(segment).toBeDisabled();
+  expect(segment).toHaveClass('disabled:opacity-50', 'disabled:cursor-not-allowed', 'focus-visible:ring-ring/50');
+  fireEvent.click(segment);
+  expect(onValueChange).not.toHaveBeenCalled();
 });

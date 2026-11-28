@@ -86,10 +86,10 @@ export function RangeSummary({
   className?: string;
 }) {
   return (
-    <p data-slot="range-summary" className={cn('mt-4 mb-5 text-xs text-foreground', className)}>
+    <p data-slot="range-summary" className={cn('mt-4 mb-4 text-meta text-foreground', className)}>
       {from} — {to}
       {children && ' '}
-      {children && <span className="ml-2.5 text-muted-foreground">{children}</span>}
+      {children && <span className="ml-2 text-muted-foreground">{children}</span>}
     </p>
   );
 }

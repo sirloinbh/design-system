@@ -4,7 +4,7 @@ import { extendTailwindMerge } from 'tailwind-merge';
 // tailwind-merge cannot see the text styles in @sirloinbh/design-tokens (@utility text-body, ...), so it
 // takes them for text colours and text-destructive removes them. Listing them as font sizes keeps both.
 // project-standards scripts/test/cn-text-styles.test.mjs fails if this list and the tokens differ.
-const TEXT_STYLES = ['body', 'body-sm', 'caption', 'meta'];
+const TEXT_STYLES = ['body', 'body-sm', 'caption', 'meta', 'stat', 'title'];
 
 const twMerge = extendTailwindMerge({
   extend: { classGroups: { 'font-size': [{ text: TEXT_STYLES }] } },

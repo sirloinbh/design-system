@@ -40,9 +40,9 @@ type FieldProps = Omit<
 >;
 
 const popoverClass =
-  'z-50 rounded-md border bg-popover p-3 text-popover-foreground shadow-md outline-none';
+  'z-[var(--z-popover)] rounded-md border bg-popover p-3 text-popover-foreground shadow-md outline-none';
 const cell =
-  'flex size-10 items-center justify-center rounded-md text-body-sm outline-none pointer-coarse:size-12 hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-40 group-aria-selected:bg-primary group-aria-selected:text-primary-foreground aria-[current=date]:font-semibold aria-[current=date]:underline';
+  'flex size-10 cursor-pointer items-center justify-center rounded-md text-body-sm outline-none pointer-coarse:size-12 hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 group-aria-selected:bg-primary group-aria-selected:text-primary-foreground aria-[current=date]:font-semibold aria-[current=date]:underline';
 
 function Month({
   value,
@@ -190,7 +190,7 @@ function PickerField({
             placeholder={placeholder}
             maxLength={maxLength}
             aria-label={label}
-            className="min-w-0 flex-1 md:pointer-coarse:text-base"
+            className="min-w-0 flex-1 md:pointer-coarse:text-body"
             value={value}
             onChange={(event) => onValueChange(event.target.value)}
           />

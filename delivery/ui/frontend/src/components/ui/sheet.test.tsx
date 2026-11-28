@@ -47,7 +47,7 @@ test('the close button is offset by the top inset on every side except the botto
   }
 });
 
-test('the close button is 44px square on touch screens (#1103)', () => {
+test('the close button is 40px square, 48px on touch screens (#1103)', () => {
   render(
     <Sheet defaultOpen>
       <SheetContent side="right">
@@ -56,5 +56,5 @@ test('the close button is 44px square on touch screens (#1103)', () => {
       </SheetContent>
     </Sheet>,
   );
-  expect(screen.getByRole('button', { name: 'Close' })).toHaveClass('size-8', 'pointer-coarse:size-11');
+  expect(screen.getByRole('button', { name: 'Close' })).toHaveClass('size-10', 'cursor-pointer', 'pointer-coarse:size-12');
 });

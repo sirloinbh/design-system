@@ -44,6 +44,8 @@ The mobile size is the default, and from `md` (768px) up it grows to the size on
 | `body` | `p` | 16px | 16px | 400 | 0 | `foreground` | Body text |
 | `body-sm` | `p` | 14px | 14px | 400 | 0 | `foreground` | Tables, body text in narrow areas |
 | `caption` | `p` | 14px | 14px | 400 | 0 | `muted-foreground` | Secondary and caption text, input descriptions |
+| `stat` | `p` | 24px | 30px | 500 | -0.025em | `foreground` | Large number on a StatCard |
+| `title` | `p` | 16px | 18px | 600 | 0 | `foreground` | Title of a card, dialog, sheet or drawer |
 | `meta` | `span` | 12px | 12px | 400 | 0 | `muted-foreground` | Meta information such as dates, times, and counts |
 
 **12px floor (user decision, 2026-11-26, #1127).** No text on any screen is smaller than 12px: `text-xs` and `meta` are the smallest sizes, and arbitrary values such as `text-[10px]`, inline `fontSize` under 12, and SVG label sizes under 12 are not allowed. `standards-check` fails on them (`text under 12px`, #1135); the `std-ux-audit` skill checks the computed size in the browser.
@@ -147,10 +149,12 @@ Values are in oklch. No app has its own colors. All 8 apps use the same black-an
 | `--accent` | `oklch(0.97 0 0)` | `oklch(0.269 0 0)` | Hovered and selected menu background |
 | `--accent-foreground` | `oklch(0.205 0 0)` | `oklch(0.985 0 0)` | Hovered and selected menu text |
 | `--destructive` | `oklch(0.577 0.245 27.325)` | `oklch(0.704 0.191 22.216)` | Delete and error |
+| `--destructive-foreground` | `oklch(1 0 0)` | `oklch(1 0 0)` | Text on a destructive background |
 | `--success` | `oklch(0.527 0.154 150.069)` | `oklch(0.723 0.219 149.579)` | Success and completion (Tailwind green-700, 4.5:1 or more against white text) |
 | `--success-foreground` | `oklch(1 0 0)` | `oklch(0.145 0 0)` | Text on the success color |
 | `--warning` | `oklch(0.828 0.189 84.429)` | `oklch(0.828 0.189 84.429)` | Warning (Tailwind amber-400) |
 | `--warning-foreground` | `oklch(0.279 0.077 45.635)` | `oklch(0.279 0.077 45.635)` | Text on the warning color (Tailwind amber-950) |
+| `--overlay` | `oklch(0 0 0 / 50%)` | `oklch(0 0 0 / 50%)` | Backdrop behind a dialog, sheet or drawer |
 | `--border` | `oklch(0.922 0 0)` | `oklch(1 0 0 / 10%)` | Dividers, card borders |
 | `--input` | `oklch(0.922 0 0)` | `oklch(1 0 0 / 15%)` | Input field border |
 | `--ring` | `oklch(0.708 0 0)` | `oklch(0.556 0 0)` | Keyboard focus indicator |

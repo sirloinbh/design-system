@@ -112,7 +112,8 @@ export function renderTailwindCss(t) {
   // Non-heading styles become utilities (text-body, text-caption, ...); headings are styled by element above.
   for (const s of t.textStyles.filter((x) => !/^h[1-4]$/.test(x.element))) {
     if (!size[s.size]) throw new Error(`unknown size ${s.size}`);
-    lines.push(`@utility text-${s.name} {`, ...styleRule(s, s.size).map((l) => `  ${l}`), '}', '');
+    const mdRule = s.sizeMd !== s.size ? [`  @media (min-width: ${md}) {`, `    font-size: var(--text-${s.sizeMd});`, `    line-height: var(--text-${s.sizeMd}--line-height);`, '  }'] : [];
+    lines.push(`@utility text-${s.name} {`, ...styleRule(s, s.size).map((l) => `  ${l}`), ...mdRule, '}', '');
   }
   return lines.join('\n');
 }

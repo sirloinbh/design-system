@@ -70,3 +70,14 @@ test('a button shows a pointer cursor, and a disabled one shows not-allowed (#11
   render(<Button>Save</Button>);
   expect(screen.getByRole('button', { name: 'Save' })).toHaveClass('cursor-pointer', 'disabled:cursor-not-allowed');
 });
+
+test('the small size is 40px tall, like the default (ui-spec)', () => {
+  render(<Button size="sm">Clear</Button>);
+  expect(screen.getByRole('button', { name: 'Clear' })).toHaveClass('h-10', 'pointer-coarse:min-h-12');
+});
+
+test('a destructive button takes its text color from the destructive-foreground token', () => {
+  render(<Button variant="destructive">Delete</Button>);
+  expect(screen.getByRole('button', { name: 'Delete' })).toHaveClass('text-destructive-foreground');
+  expect(screen.getByRole('button', { name: 'Delete' })).not.toHaveClass('text-white');
+});

@@ -28,7 +28,7 @@ function SheetContent({
     <SheetPrimitive.Portal>
       <SheetPrimitive.Overlay
         data-slot="sheet-overlay"
-        className="fixed inset-0 z-[var(--z-drawer)] bg-black/50 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0"
+        className="fixed inset-0 z-[var(--z-drawer)] bg-overlay data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0"
       />
       <SheetPrimitive.Content
         data-slot="sheet-content"
@@ -49,7 +49,7 @@ function SheetContent({
         {/* A bottom sheet starts below the status bar, so only the other sides offset the button by the inset (#686). */}
         <SheetPrimitive.Close
           className={cn(
-            'absolute right-3 flex size-8 items-center justify-center rounded-sm opacity-70 transition-opacity outline-none hover:opacity-100 focus-visible:ring-[3px] focus-visible:ring-ring/50 pointer-coarse:size-11 [&_svg]:size-4',
+            'absolute right-3 flex size-10 cursor-pointer items-center justify-center rounded-sm opacity-70 transition-opacity outline-none hover:opacity-100 focus-visible:ring-[3px] focus-visible:ring-ring/50 pointer-coarse:size-12 [&_svg]:size-4',
             side === 'bottom' ? 'top-3' : 'top-[calc(env(safe-area-inset-top)+0.75rem)]',
           )}
         >
@@ -70,7 +70,7 @@ function SheetFooter({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 function SheetTitle({ className, ...props }: React.ComponentProps<typeof SheetPrimitive.Title>) {
-  return <SheetPrimitive.Title data-slot="sheet-title" className={cn('font-semibold text-foreground', className)} {...props} />;
+  return <SheetPrimitive.Title data-slot="sheet-title" className={cn('text-title', className)} {...props} />;
 }
 
 function SheetDescription({ className, ...props }: React.ComponentProps<typeof SheetPrimitive.Description>) {
