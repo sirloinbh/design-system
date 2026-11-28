@@ -3,10 +3,13 @@ import { expect, test } from 'vitest';
 import {
   addDays,
   dayLabel,
+  isMonth,
   lastWeeks,
+  monthLabel,
   periodRange,
   rangeLabel,
   readDateParam,
+  shiftMonth,
   stepDays,
   weekDays,
   weekStart,
@@ -65,4 +68,30 @@ test('labels are English and written out', () => {
   expect(dayLabel('2026-11-27')).toBe('Fri, Nov 27, 2026');
   expect(rangeLabel('2026-11-27', '2026-11-27')).toBe('Fri, Nov 27, 2026');
   expect(rangeLabel('2026-11-22', '2026-11-28')).toBe('Nov 22 – Nov 28');
+});
+
+test('shiftMonth crosses year boundaries in both directions and stops at the ends', () => {
+  expect(shiftMonth('2026-12', 1)).toBe('2027-01');
+  expect(shiftMonth('2026-01', -1)).toBe('2025-12');
+  expect(shiftMonth('2026-10', 14)).toBe('2027-12');
+  expect(shiftMonth('2026-10', 0)).toBe('2026-10');
+  expect(shiftMonth('0001-01', -1)).toBe('0001-01');
+  expect(shiftMonth('9999-12', 1)).toBe('9999-12');
+});
+
+test('isMonth accepts only a real YYYY-MM', () => {
+  expect(isMonth('2026-11')).toBe(true);
+  expect(isMonth('0001-01')).toBe(true);
+  expect(isMonth('0000-12')).toBe(false);
+  expect(isMonth('2026-13')).toBe(false);
+  expect(isMonth('2026-00')).toBe(false);
+  expect(isMonth('2026-1')).toBe(false);
+  expect(isMonth('2026-11-01')).toBe(false);
+  expect(isMonth('')).toBe(false);
+});
+
+test('monthLabel gives the long and the short English label', () => {
+  expect(monthLabel('2026-10')).toBe('October 2026');
+  expect(monthLabel('2027-01', 'long')).toBe('January 2027');
+  expect(monthLabel('2026-10', 'short')).toBe('Oct');
 });
