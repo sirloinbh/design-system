@@ -98,7 +98,7 @@ function Combobox({
         role="option"
         aria-selected={i === activeIndex}
         data-slot="combobox-option"
-        className={cn('flex cursor-pointer items-center rounded-sm px-2 py-1.5 text-sm pointer-coarse:min-h-11', i === activeIndex && 'bg-accent text-accent-foreground')}
+        className={cn('flex cursor-pointer items-center min-h-10 rounded-sm px-2 py-1.5 text-body-sm pointer-coarse:min-h-12', i === activeIndex && 'bg-accent text-accent-foreground')}
         onMouseEnter={() => setActive(i)}
         onClick={(event) => {
           // Inside a <label> the click would be passed on to the field and reopen the list.
@@ -165,13 +165,13 @@ function Combobox({
         aria-label={listLabel}
         hidden={!expanded}
         data-slot="combobox-list"
-        className="absolute inset-x-0 top-full z-50 mt-1 max-h-72 overflow-y-auto rounded-md border bg-popover p-1 text-popover-foreground shadow-md"
+        className="absolute inset-x-0 top-full z-[var(--z-popover)] mt-1 max-h-72 overflow-y-auto rounded-md border bg-popover p-1 text-popover-foreground shadow-md"
       >
         {expanded &&
           filtered.map((group, g) =>
             group.label ? (
               <li key={`group-${g}`} role="presentation">
-                <div id={`${listId}-group-${g}`} className="px-2 py-1.5 text-xs font-medium text-muted-foreground">
+                <div id={`${listId}-group-${g}`} className="px-2 py-1.5 text-caption font-medium text-muted-foreground">
                   {group.label}
                 </div>
                 <ul role="group" aria-labelledby={`${listId}-group-${g}`}>
@@ -183,7 +183,7 @@ function Combobox({
             ),
           )}
       </ul>
-      <p role="status" data-slot="combobox-empty" className={cn('absolute inset-x-0 top-full z-50 mt-1 rounded-md border bg-popover px-3 py-2 text-sm text-muted-foreground shadow-md', !empty && 'sr-only')}>
+      <p role="status" data-slot="combobox-empty" className={cn('absolute inset-x-0 top-full z-[var(--z-popover)] mt-1 rounded-md border bg-popover px-3 py-2 text-body-sm text-muted-foreground shadow-md', !empty && 'sr-only')}>
         {empty ? emptyMessage : null}
       </p>
     </div>

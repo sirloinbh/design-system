@@ -31,7 +31,7 @@ function CardTitle({
   asHeading: Heading = 'h3',
   ...props
 }: React.ComponentProps<'h3'> & { asHeading?: 'h2' | 'h3' | 'h4' }) {
-  return <Heading data-slot="card-title" className={cn('leading-none font-semibold', className)} {...props} />;
+  return <Heading data-slot="card-title" className={cn('text-title', className)} {...props} />;
 }
 
 function CardDescription({ className, ...props }: React.ComponentProps<'p'>) {

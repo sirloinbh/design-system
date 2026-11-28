@@ -94,10 +94,10 @@ test('the empty message is announced only when the typed text matches nothing', 
   expect(status).toBeEmptyDOMElement();
 });
 
-test('options are 44px tall on touch screens', () => {
+test('options are 40px tall, 48px on touch screens', () => {
   render(<Exercise />);
   fireEvent.click(field());
-  expect(screen.getByRole('option', { name: 'Squat' })).toHaveClass('pointer-coarse:min-h-11');
+  expect(screen.getByRole('option', { name: 'Squat' })).toHaveClass('min-h-10', 'pointer-coarse:min-h-12');
 });
 
 test('filterComboboxGroups caps the total, drops empty groups, and hides the exact value', () => {

@@ -10,7 +10,7 @@ test('headings: # becomes h2 by default and the level can start lower', () => {
   const { rerender } = render(<Markdown>{'# One\n\n## Two\n\n#### Four'}</Markdown>);
   expect(screen.getByRole('heading', { level: 2, name: 'One' })).toBeInTheDocument();
   expect(screen.getByRole('heading', { level: 3, name: 'Two' })).toBeInTheDocument();
-  expect(screen.getByRole('heading', { level: 5, name: 'Four' })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { level: 4, name: 'Four' })).toBeInTheDocument();
   rerender(<Markdown headingStart={3}>{'# One'}</Markdown>);
   expect(screen.getByRole('heading', { level: 3, name: 'One' })).toBeInTheDocument();
   expect(screen.queryByRole('heading', { level: 1 })).not.toBeInTheDocument();

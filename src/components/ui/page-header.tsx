@@ -44,10 +44,10 @@ function PageHeader({
           </Link>
         ) : null}
         {eyebrow ? <p className="text-caption font-semibold tracking-widest text-muted-foreground uppercase">{eyebrow}</p> : null}
-        <h1 id={id} ref={headingRef} tabIndex={headingRef ? -1 : undefined} className="break-keep">
+        <h1 id={id} ref={headingRef} tabIndex={headingRef ? -1 : undefined}>
           {title}
         </h1>
-        {description ? <p className="text-body break-keep text-muted-foreground">{description}</p> : null}
+        {description ? <p className="text-body text-muted-foreground">{description}</p> : null}
       </div>
       {actions ? <div className="flex shrink-0 flex-wrap gap-2">{actions}</div> : null}
     </div>

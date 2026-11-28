@@ -53,10 +53,12 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);
   --color-warning-foreground: var(--warning-foreground);
+  --color-overlay: var(--overlay);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -160,6 +162,30 @@
   font-weight: 400;
   letter-spacing: 0;
   color: var(--color-muted-foreground);
+}
+
+@utility text-stat {
+  font-size: var(--text-2xl);
+  line-height: var(--text-2xl--line-height);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--color-foreground);
+  @media (min-width: 48rem) {
+    font-size: var(--text-3xl);
+    line-height: var(--text-3xl--line-height);
+  }
+}
+
+@utility text-title {
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--color-foreground);
+  @media (min-width: 48rem) {
+    font-size: var(--text-lg);
+    line-height: var(--text-lg--line-height);
+  }
 }
 
 @utility text-meta {

@@ -186,6 +186,6 @@ test('the time field takes typed text and picks the hour then the minute', () =>
 
 test('the text input is 16px on a touch screen at every width (no iOS zoom on focus)', () => {
   render(<Date_ />);
-  // Below md the shared field is text-base; from md up it is text-body-sm unless the pointer is coarse.
-  expect(field()).toHaveClass('text-base', 'md:pointer-coarse:text-base');
+  // Below md the shared field is text-body; from md up it is text-body-sm unless the pointer is coarse.
+  expect(field()).toHaveClass('text-body', 'md:pointer-coarse:text-body');
 });

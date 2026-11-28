@@ -11,7 +11,7 @@ type HeadingTag = 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 // plain text. Links are only http(s) and open in a new tab. The supported syntax is listed in markdown.md.
 //
 // `headingStart` is the tag a `#` heading becomes (default `h2`, because the page's own title is the `h1`); `##`
-// becomes the next level, and so on up to `h6`.
+// becomes the next level, and so on up to `h4`.
 function Markdown({
   children,
   headingStart = 2,
@@ -38,7 +38,7 @@ function Markdown({
 function BlockView({ block, headingStart }: { block: Block; headingStart: number }) {
   switch (block.type) {
     case 'heading': {
-      const Tag = `h${Math.min(6, headingStart + block.level - 1)}` as HeadingTag;
+      const Tag = `h${Math.min(4, headingStart + block.level - 1)}` as HeadingTag;
       return (
         <Tag className="mt-2 first:mt-0">
           <InlineView nodes={block.children} />
@@ -118,7 +118,7 @@ function InlineView({ nodes }: { nodes: Inline[] }) {
                 href={node.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cursor-pointer rounded-sm text-primary underline underline-offset-4 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+                className="relative cursor-pointer rounded-sm text-primary underline underline-offset-4 outline-none after:absolute after:inset-x-0 after:-inset-y-3 after:content-[''] focus-visible:ring-[3px] focus-visible:ring-ring/50"
               >
                 <InlineView nodes={node.children} />{' '}
                 <span className="sr-only">(opens in a new tab)</span>

@@ -18,3 +18,9 @@ test('it shows the label, the value with its unit, and the note', () => {
   expect(screen.getByText('kg').parentElement).toHaveTextContent('1,500kg');
   expect(screen.getByText('Total weight × reps')).toBeInTheDocument();
 });
+
+test('the value uses the text-stat token and the card accepts a className', () => {
+  const { container } = render(<StatCard label="Sets" value="12" unit="sets" icon={<svg aria-hidden="true" />} foot="This week" className="w-60" />);
+  expect(container.querySelector('[data-slot="stat-value"]')).toHaveClass('text-stat');
+  expect(container.querySelector('[data-slot="stat"]')).toHaveClass('w-60');
+});

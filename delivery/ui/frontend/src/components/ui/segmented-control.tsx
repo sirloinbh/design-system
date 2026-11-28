@@ -13,6 +13,7 @@ export function SegmentedControl<T extends string>({
   onValueChange,
   onReselect,
   className,
+  disabled,
 }: {
   label: string;
   options: readonly SegmentOption<T>[];
@@ -20,11 +21,13 @@ export function SegmentedControl<T extends string>({
   onValueChange: (value: T) => void;
   onReselect?: () => void;
   className?: string;
+  disabled?: boolean;
 }) {
   return (
     <ToggleGroup.Root
       type="single"
       aria-label={label}
+      disabled={disabled}
       value={value}
       onValueChange={(next) => {
         if (next) onValueChange(next as T);
@@ -36,7 +39,7 @@ export function SegmentedControl<T extends string>({
         <ToggleGroup.Item
           key={option.value}
           value={option.value}
-          className="min-h-8 cursor-pointer rounded-sm px-3 text-body-sm text-foreground/70 outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring data-[state=on]:bg-card data-[state=on]:font-medium data-[state=on]:text-foreground pointer-coarse:min-h-11"
+          className="min-h-10 pointer-coarse:min-h-12 cursor-pointer rounded-sm px-3 text-body-sm text-foreground/70 outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 data-[state=on]:bg-card data-[state=on]:font-medium data-[state=on]:text-foreground disabled:cursor-not-allowed disabled:opacity-50"
         >
           {option.label}
         </ToggleGroup.Item>

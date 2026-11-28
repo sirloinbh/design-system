@@ -59,3 +59,8 @@ test('the trigger shows a pointer cursor (#1126)', () => {
   render(<Period />);
   expect(screen.getByRole('combobox', { name: 'Period' })).toHaveClass('cursor-pointer', 'disabled:cursor-not-allowed');
 });
+
+test('the small trigger is 40px tall and the text is 16px below md (ui-spec)', () => {
+  render(<Period />);
+  expect(screen.getByRole('combobox', { name: 'Period' })).toHaveClass('data-[size=sm]:h-10', 'text-body', 'md:text-body-sm', 'aria-invalid:ring-destructive/20');
+});
