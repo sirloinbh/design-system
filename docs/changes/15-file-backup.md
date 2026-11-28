@@ -13,6 +13,8 @@
 - Tests for all three and stories `Components/FileField` and `Components/BackupSection`.
 - The study-log, life-journal, money-ledger and workout-memo originals were not available in this checkout, so the APIs follow the survey notes.
 
+- Visual baselines for the FileField and BackupSection stories, made in the pinned Playwright container (`docs/showcase-tests.md`). The PeriodNav baselines (#1175) were also missing on main, so they are included; they are the images the PeriodNav card would produce.
+
 ## Verification
 
 - `npm run check` passes (Tests 242 passed | 3 skipped (245)).
