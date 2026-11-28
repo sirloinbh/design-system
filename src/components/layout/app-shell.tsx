@@ -1,9 +1,10 @@
-import { type LucideIcon, MenuIcon, SearchIcon } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import type * as React from 'react';
 import { useCallback, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 
 import { CurrentAppIcon } from '../../lib/apps';
+import { ICON_SIZE, MenuIcon, SearchIcon } from '../../lib/icons';
 import { DARK_ONLY } from '../../lib/theme-config';
 import { cn } from '../../lib/utils';
 import { type SearchContent,SearchDialog } from '../search/search-dialog';
@@ -38,7 +39,7 @@ function NavList({ items, onNavigate }: { items: NavItem[]; onNavigate?: () => v
               )
             }
           >
-            {Icon ? <Icon className="size-4 shrink-0" aria-hidden /> : null}
+            {Icon ? <Icon className={cn(ICON_SIZE.menu, 'shrink-0')} aria-hidden /> : null}
             {label}
           </NavLink>
         </li>
@@ -109,7 +110,7 @@ function AppShell({
             title={appName}
             className="flex min-h-11 min-w-11 items-center justify-center rounded-md px-2 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
           >
-            <CurrentAppIcon className="size-6" aria-hidden />
+            <CurrentAppIcon className={ICON_SIZE.feature} aria-hidden />
           </Link>
           <div className="ml-auto flex items-center gap-1">
             <Button variant="ghost" size="icon" ref={searchButton}

@@ -1,9 +1,9 @@
-import { SearchIcon } from 'lucide-react';
 import type * as React from 'react';
 import { useEffect, useId, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import { plural } from '../../lib/format';
+import { SearchIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 import { LoadFailed, LoadingRegion } from '../load-state/load-state';
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '../ui/dialog';

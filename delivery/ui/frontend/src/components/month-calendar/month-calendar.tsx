@@ -1,6 +1,6 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { ReactNode } from 'react';
 
+import { NextIcon, PreviousIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 import { Button } from '../ui/button';
 import {
@@ -65,7 +65,7 @@ function MonthCalendar({
           disabled={previousOff}
           onClick={() => onMonthChange(previous)}
         >
-          <ChevronLeft aria-hidden />
+          <PreviousIcon aria-hidden />
         </Button>
         <div aria-live="polite" className="text-body-sm font-semibold">
           {title || monthNames[0]}
@@ -78,7 +78,7 @@ function MonthCalendar({
           disabled={nextOff}
           onClick={() => onMonthChange(next)}
         >
-          <ChevronRight aria-hidden />
+          <NextIcon aria-hidden />
         </Button>
       </div>
       <table aria-label={title} className="w-full table-fixed border-collapse">

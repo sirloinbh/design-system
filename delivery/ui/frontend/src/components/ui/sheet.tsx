@@ -1,7 +1,7 @@
-import { XIcon } from 'lucide-react';
 import { Dialog as SheetPrimitive } from 'radix-ui';
 import type * as React from 'react';
 
+import { CloseIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 
 // A panel that slides in from a screen edge (the mobile menu uses side="left"). Same keyboard rules as Dialog.
@@ -53,7 +53,7 @@ function SheetContent({
             side === 'bottom' ? 'top-3' : 'top-[calc(env(safe-area-inset-top)+0.75rem)]',
           )}
         >
-          <XIcon aria-hidden />
+          <CloseIcon aria-hidden />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>
       </SheetPrimitive.Content>

@@ -1,6 +1,6 @@
-import { ChevronDownIcon } from 'lucide-react';
 import type * as React from 'react';
 
+import { ExpandIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 import { fieldClasses } from './input-styles';
 
@@ -17,7 +17,7 @@ function NativeSelect({ className, children, ...props }: React.ComponentProps<'s
       <select data-slot="native-select" className={cn('h-10 cursor-pointer appearance-none py-1 pr-9 pointer-coarse:min-h-12', fieldClasses, optionClasses, className)} {...props}>
         {children}
       </select>
-      <ChevronDownIcon aria-hidden className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-muted-foreground" />
+      <ExpandIcon aria-hidden className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-muted-foreground" />
     </div>
   );
 }

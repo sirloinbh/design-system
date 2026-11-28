@@ -1,7 +1,7 @@
-import { CheckIcon, CircleIcon } from 'lucide-react';
 import { DropdownMenu as DropdownMenuPrimitive } from 'radix-ui';
 import type * as React from 'react';
 
+import { ConfirmIcon, RadioDotIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 
 // Menu opened from a button. Arrow keys move, Enter picks, Escape closes and returns focus to the button.
@@ -65,7 +65,7 @@ function DropdownMenuCheckboxItem({
     <DropdownMenuPrimitive.CheckboxItem data-slot="dropdown-menu-checkbox-item" className={cn(itemClass, 'pl-8', className)} {...props}>
       <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
         <DropdownMenuPrimitive.ItemIndicator>
-          <CheckIcon className="size-4" aria-hidden />
+          <ConfirmIcon className="size-4" aria-hidden />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
       {children}
@@ -82,7 +82,7 @@ function DropdownMenuRadioItem({ className, children, ...props }: React.Componen
     <DropdownMenuPrimitive.RadioItem data-slot="dropdown-menu-radio-item" className={cn(itemClass, 'pl-8', className)} {...props}>
       <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
         <DropdownMenuPrimitive.ItemIndicator>
-          <CircleIcon className="size-2 fill-current" aria-hidden />
+          <RadioDotIcon className="size-2 fill-current" aria-hidden />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
       {children}

@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority';
-import { Loader2Icon } from 'lucide-react';
 import type * as React from 'react';
 
+import { LoadingIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 
 // Spinner for short waits and buttons that are saving. Three sizes only (docs/design-system.md).
@@ -17,7 +17,7 @@ function Spinner({
   ...props
 }: Omit<React.ComponentProps<'svg'>, 'children'> & VariantProps<typeof spinnerVariants> & { label?: string }) {
   return (
-    <Loader2Icon
+    <LoadingIcon
       data-slot="spinner"
       role="status"
       aria-label={label}

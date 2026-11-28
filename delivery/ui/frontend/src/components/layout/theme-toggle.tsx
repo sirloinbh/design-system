@@ -1,6 +1,6 @@
-import { MonitorIcon, MoonIcon, SunIcon } from 'lucide-react';
 import { useState } from 'react';
 
+import { DarkModeIcon, LightModeIcon, SystemModeIcon } from '../../lib/icons';
 import { applyTheme, readTheme, type ThemeChoice } from '../../lib/theme';
 import { Button } from '../ui/button';
 import {
@@ -13,7 +13,7 @@ import {
 } from '../ui/dropdown-menu';
 
 const LABELS: Record<ThemeChoice, string> = { system: 'System', light: 'Light', dark: 'Dark' };
-const ICONS = { system: MonitorIcon, light: SunIcon, dark: MoonIcon };
+const ICONS = { system: SystemModeIcon, light: LightModeIcon, dark: DarkModeIcon };
 
 function ThemeToggle() {
   const [choice, setChoice] = useState<ThemeChoice>(readTheme);

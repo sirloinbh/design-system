@@ -1,6 +1,6 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { type ReactNode, useState } from 'react';
 
+import { NextIcon, PreviousIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 import { Button } from './button';
 import { DateField } from './date-field';
@@ -39,7 +39,7 @@ export function DateStepper({
           className="text-muted-foreground"
           onClick={() => onMove(-1)}
         >
-          <ChevronLeft />
+          <PreviousIcon />
         </Button>
       )}
       <DateField
@@ -66,7 +66,7 @@ export function DateStepper({
           className="text-muted-foreground"
           onClick={() => onMove(1)}
         >
-          <ChevronRight />
+          <NextIcon />
         </Button>
       )}
     </div>
