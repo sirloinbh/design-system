@@ -16,4 +16,5 @@
 
 ## Verification
 
-- `npm run check`: see the PR.
+- `npm run check` passes; the showcase run in the pinned container passes (448 existing + 16 new baselines).
+- `showcase/tests/stories.pw.ts` waits for the body to be attached, not visible, because an open dialog makes Storybook's body count as hidden.
