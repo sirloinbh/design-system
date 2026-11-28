@@ -27,7 +27,7 @@ test('it is closed until an item is chosen, then names the item', async () => {
   expect(screen.queryByRole('dialog')).toBeNull();
   fireEvent.click(screen.getByRole('button', { name: 'Delete bench' }));
   const dialog = await screen.findByRole('dialog', { name: 'Delete Bench press?' });
-  expect(dialog).toHaveAccessibleDescription('This cannot be undone.');
+  expect(dialog).not.toHaveAccessibleDescription();
 });
 
 test('confirming deletes the chosen item and closes', async () => {

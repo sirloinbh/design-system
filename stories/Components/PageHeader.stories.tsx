@@ -9,7 +9,6 @@ const meta = {
   component: PageHeader,
   args: {
     title: 'Week',
-    description: 'Your sessions from Monday to Sunday',
     eyebrow: 'Workout memo',
   },
   parameters: { layout: 'padded' },
@@ -20,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 export const WithActions: Story = { args: { actions: <Button>Add session</Button> } };
-export const TitleOnly: Story = { args: { description: undefined, eyebrow: undefined } };
+export const TitleOnly: Story = { args: { eyebrow: undefined } };
 
 export const WithBackLink: Story = {
   args: { backTo: { to: '/items', label: 'All items' } },

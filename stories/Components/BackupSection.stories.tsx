@@ -6,7 +6,6 @@ const meta = {
   title: 'Components/BackupSection',
   component: BackupSection,
   args: {
-    description: 'Download your data, or load a copy you saved earlier.',
     fileName: 'backup.json',
     onExport: (): BlobPart | Promise<BlobPart> => JSON.stringify({ items: [] }),
     onImport: () => new Promise((resolve) => setTimeout(resolve, 600)),

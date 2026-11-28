@@ -24,7 +24,7 @@ function BackupSection({
   exportLabel = 'Export data',
   importLabel = 'Import data',
   confirmTitle = 'Replace your data?',
-  confirmDescription = 'Importing a backup replaces the data stored now. This cannot be undone.',
+  confirmDescription,
   confirmLabel = 'Import',
   exportedText = 'Backup downloaded.',
   importedText = 'Backup imported.',

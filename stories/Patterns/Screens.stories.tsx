@@ -45,7 +45,6 @@ function DayLog() {
     >
       <PageHeader
         title="Day log"
-        description="What you did on the selected day."
         actions={
           <Button>
             <PlusIcon aria-hidden /> Add session
@@ -88,7 +87,7 @@ function Week() {
         { id: 'design-guidelines', rule: 'pick instead of type' },
       ]}
     >
-      <PageHeader title="Week" description="Nov 23 to Nov 29" />
+      <PageHeader title="Week" />
       <SegmentedControl
         label="Range"
         value={view}
@@ -138,7 +137,7 @@ const WEEKS = Array.from({ length: 12 }, (_, i) => ({
 function TwelveWeeks() {
   return (
     <PatternFrame follows={[{ id: 'layout', rule: '12-week view' }]}>
-      <PageHeader title="12 weeks" description="Sessions per week over the last 12 weeks" />
+      <PageHeader title="12 weeks" />
       <Card>
         <CardHeader>
           <CardTitle>Sessions per week</CardTitle>
