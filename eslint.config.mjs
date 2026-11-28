@@ -10,12 +10,20 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 // The UI source lives in src/ (the apps use frontend/src/), so the type-aware and React rules point there.
-// scripts/ holds Node scripts copied as they are from project-standards.
+// scripts/ and the sync-owned paths (.standards/, .claude/, .codex/, .vscode/, skills/) are copied as they are from
+// project-standards, so they are not linted here.
 export default [
   ...createConfig(
     { js, tseslint, globals, reactHooks, reactRefresh, jsxA11y, importSort, prettier },
     {
-      ignores: ['scripts/**'],
+      ignores: [
+        'scripts/**',
+        '.standards/**',
+        '.claude/**',
+        '.codex/**',
+        '.vscode/**',
+        'skills/**',
+      ],
       frontendFiles: '{src,stories,showcase}/**/*.{ts,tsx}',
       typedFiles: [
         'src/**/*.{ts,tsx}',
