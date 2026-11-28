@@ -55,6 +55,16 @@ test('the release workflow runs on v tags only, never on package tags, and skips
   assert.ok(!text.includes('${{ github.ref_name }}"'), 'the tag is read from the TAG variable only');
 });
 
+test('every workflow that runs npm ci can read the @sirloinbh packages', () => {
+  const dir = path.join(root, '.github/workflows');
+  for (const name of fs.readdirSync(dir).filter((file) => file.endsWith('.yml'))) {
+    const text = fs.readFileSync(path.join(dir, name), 'utf8');
+    if (!/\bnpm ci\b/.test(text)) continue;
+    assert.match(text, /^permissions:(?:\n {2}.*)*?\n {2}packages: (?:read|write)\b/m, `${name} runs npm ci without the packages permission`);
+    assert.match(text, /NODE_AUTH_TOKEN: \$\{\{ (?:github\.token|secrets\.GITHUB_TOKEN) \}\}/, `${name} runs npm ci without NODE_AUTH_TOKEN`);
+  }
+});
+
 test('raisePin changes only the design-system line', () => {
   const out = raisePin(VERSIONS, { version: '1.0.0', sha: SHA });
   assert.equal(out, VERSIONS.replace('"version": null, "sha": null', `"version": "1.0.0", "sha": "${SHA}"`));
