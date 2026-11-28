@@ -41,6 +41,7 @@ Changes:
 - #19 Add the Markdown component (patch; docs/changes/19-markdown.md)
 - #20 Add the shared format helpers (patch; docs/changes/20-format-helpers.md)
 - #32 SegmentedControl inactive segments contrast (patch; docs/changes/32-segmented-contrast.md)
+- #60 Fix white text on white NativeSelect lists in dark mode (patch; docs/changes/60-dark-dropdown-lists.md)
 - #7 Add the ProgressBar component (patch; docs/changes/7-progress-bar.md)
 - #8 Add the Table component family (patch; docs/changes/8-table.md)
 - #9 Add LoadingRegion, LoadFailed and RetryButton (patch; docs/changes/9-load-state.md)
