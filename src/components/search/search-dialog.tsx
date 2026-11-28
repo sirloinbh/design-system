@@ -176,7 +176,7 @@ function SearchDialog({
           <input
             type="text"
             role="combobox"
-            aria-label="Search"
+            aria-label="Search this app"
             aria-expanded={results.length > 0}
             aria-controls={listId}
             aria-activedescendant={results.length > 0 ? optionId(active) : undefined}
