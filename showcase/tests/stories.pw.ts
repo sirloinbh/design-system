@@ -16,10 +16,7 @@ const WIDTHS = [360, 1280] as const;
 const visual = !!process.env.SHOWCASE_VISUAL;
 
 // Accessibility issues that are tracked and not fixed yet. Remove an entry when its issue is closed.
-const KNOWN_AXE_ISSUES = [
-  // SegmentedControl: inactive segments are below 4.5:1 in light mode.
-  { rule: 'color-contrast', target: '[data-state="off"]', issue: 'sirloinbh/design-system#32' },
-];
+const KNOWN_AXE_ISSUES: { rule: string; target: string; issue: string }[] = [];
 
 function isKnownIssue(rule: string, target: string): boolean {
   return KNOWN_AXE_ISSUES.some((k) => k.rule === rule && target.includes(k.target));
