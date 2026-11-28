@@ -18,6 +18,7 @@ export default [
     {
       ignores: [
         'scripts/**',
+        'delivery/ui/**',
         '.standards/**',
         '.claude/**',
         '.codex/**',
