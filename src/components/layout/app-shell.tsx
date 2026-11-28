@@ -34,7 +34,7 @@ function NavList({ items, onNavigate }: { items: NavItem[]; onNavigate?: () => v
             onClick={onNavigate}
             className={({ isActive }) =>
               cn(
-                'flex min-h-9 items-center gap-3 rounded-md px-3 text-body-sm outline-none pointer-coarse:min-h-11 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-[3px] focus-visible:ring-sidebar-ring/50',
+                'flex min-h-10 items-center gap-3 rounded-md px-3 text-body-sm outline-none pointer-coarse:min-h-12 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-[3px] focus-visible:ring-sidebar-ring/50',
                 isActive && 'bg-sidebar-accent font-medium text-sidebar-accent-foreground',
               )
             }
@@ -87,7 +87,7 @@ function AppShell({
         Skip to main content
       </a>
       <header className="sticky top-0 z-[var(--z-sticky)] border-b bg-background/95 pt-[env(safe-area-inset-top)] backdrop-blur supports-[backdrop-filter]:bg-background/80">
-        <div className="flex h-14 items-center gap-2 pr-[max(env(safe-area-inset-right),0.5rem)] pl-[max(env(safe-area-inset-left),0.5rem)] md:px-4">
+        <div className="flex h-14 items-center gap-2 pr-[max(env(safe-area-inset-right),var(--page-x))] pl-[max(env(safe-area-inset-left),var(--page-x))]">
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu">
@@ -108,7 +108,7 @@ function AppShell({
             to="/"
             aria-label={appName}
             title={appName}
-            className="flex min-h-11 min-w-11 items-center justify-center rounded-md px-2 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+            className="flex min-h-11 min-w-11 cursor-pointer items-center justify-center pointer-coarse:min-h-12 pointer-coarse:min-w-12 rounded-md px-2 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
           >
             <CurrentAppIcon className={ICON_SIZE.feature} aria-hidden />
           </Link>
@@ -145,7 +145,7 @@ function AppShell({
           >
             {children}
           </main>
-          <footer className="border-t px-[var(--page-x)] pt-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] text-caption text-muted-foreground">
+          <footer className="border-t px-[max(var(--page-x),env(safe-area-inset-left))] pt-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] text-caption text-muted-foreground">
             {footer ?? appName}
           </footer>
         </div>
