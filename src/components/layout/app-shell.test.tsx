@@ -26,7 +26,7 @@ afterEach(() => {
   localStorage.clear();
 });
 
-test('the frame has a skip link, the app name, a main region and a footer', () => {
+test('the frame has a skip link, the home link, a main region and a footer', () => {
   renderAt('/');
   expect(screen.getByRole('link', { name: 'Skip to main content' })).toHaveAttribute('href', '#main');
   expect(screen.getByRole('link', { name: 'Sample App' })).toHaveAttribute('href', '/');
@@ -72,4 +72,22 @@ test('the sidebar and the content height include the top safe-area inset the hea
   const sidebar = document.querySelector('aside');
   expect(sidebar).toHaveClass('top-[calc(3.5rem+env(safe-area-inset-top))]', 'h-[calc(100dvh-3.5rem-env(safe-area-inset-top))]');
   expect(screen.getByRole('main').parentElement).toHaveClass('min-h-[calc(100dvh-3.5rem-env(safe-area-inset-top))]');
+});
+
+test('the top bar shows the app icon, not the app name; the home link is named by the app name and has a 44px press area (#57)', () => {
+  renderAt('/');
+  const header = screen.getByRole('banner');
+  const home = within(header).getByRole('link', { name: 'Sample App' });
+  expect(home).toHaveAttribute('href', '/');
+  expect(home).toHaveAttribute('title', 'Sample App');
+  expect(home.querySelector('svg')).toHaveAttribute('aria-hidden', 'true');
+  expect(home).toHaveClass('min-h-11', 'min-w-11');
+  expect(header).not.toHaveTextContent('Sample App');
+});
+
+test('the app name stays as the menu sheet title and the footer text (#57)', () => {
+  renderAt('/');
+  expect(screen.getByRole('contentinfo')).toHaveTextContent('Sample App');
+  fireEvent.click(screen.getByRole('button', { name: 'Open menu' }));
+  expect(screen.getByRole('dialog', { name: 'Sample App' })).toBeInTheDocument();
 });

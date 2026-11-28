@@ -11,6 +11,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 // Sample values only. The real ones come from registry/projects.json in project-standards.
 export const SAMPLE = {
   'project.name': 'design-system',
+  'project.icon': 'Palette',
   'project.features.darkOnly': 'false',
   'project.features.aiShell': 'false',
   'platform.rootDomain': 'example.test',
