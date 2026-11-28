@@ -33,7 +33,9 @@ for (const entry of entries) {
         const globals = encodeURIComponent(`theme:${theme}`);
         await page.goto(`/iframe.html?id=${entry.id}&viewMode=${entry.type}&globals=${globals}`);
         // Storybook marks the body once the story has rendered (an open dialog leaves the story root empty).
-        await page.waitForSelector('body.sb-show-main, body.sb-show-errordisplay');
+        await page.waitForSelector('body.sb-show-main, body.sb-show-errordisplay', {
+          state: 'attached',
+        });
         await expect(
           page.locator('body.sb-show-errordisplay'),
           'the story failed to render',
