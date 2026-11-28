@@ -6,12 +6,12 @@ Epic #1156 (first release, v1.0.0). A release hands `delivery/ui/` to the projec
 
 ## Change
 
-| File | Content |
-|---|---|
-| `scripts/build-delivery.mjs` | `npm run delivery` copies the git-tracked files of `src/` and `public/` (without stories) to `delivery/ui/frontend/`; `npm run delivery:check` fails with the fix command when the copy is stale. `delivery/ui/skills` is not touched |
-| `delivery/ui/frontend/` | The generated copy (134 files) |
-| `scripts/test/build-delivery.test.mjs` | Build, stale detection, and that this repository is up to date |
-| `package.json`, `eslint.config.mjs` | The two scripts; `delivery:check` is part of `check`; the copy is not linted twice (prettier already ignores `delivery/`) |
+| File                                   | Content                                                                                                                                                                                                                               |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `scripts/build-delivery.mjs`           | `npm run delivery` copies the git-tracked files of `src/` and `public/` (without stories) to `delivery/ui/frontend/`; `npm run delivery:check` fails with the fix command when the copy is stale. `delivery/ui/skills` is not touched |
+| `delivery/ui/frontend/`                | The generated copy (134 files)                                                                                                                                                                                                        |
+| `scripts/test/build-delivery.test.mjs` | Build, stale detection, and that this repository is up to date                                                                                                                                                                        |
+| `package.json`, `eslint.config.mjs`    | The two scripts; `delivery:check` is part of `check`; the copy is not linted twice (prettier already ignores `delivery/`)                                                                                                             |
 
 ## Working here
 
