@@ -1,6 +1,6 @@
 # Design guidelines
 
-The single list of rules every shared component and every app screen follows (#1172). Details and values live in the linked pages; this page says what the rule is and **what enforces it**.
+The single list of rules every shared component and every app screen follows (#1172). Details and values live in the linked pages; this page says what the rule is and **what enforces it**. The exact size, spacing, radius, text and state values of every element are in the [UI element spec](ui-spec.md).
 
 The "Check" column names the test or check that fails when the rule is broken. **Review** means no automatic check exists yet: the reviewer uses the [review checklist](review-checklist.md), and the gap is a candidate for a new test.
 

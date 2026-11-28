@@ -6,6 +6,7 @@ Use it when you review a pull request in this repository, and tick it in the PR 
 
 - [ ] English only: text, `aria-*` text, test names, stories (no Hangul outside a marked sample).
 - [ ] Screen text rule: no explanatory, example or motivational text; no description props or `e.g.` lines in components and stories ([rule](guidelines.md#screen-text-rule)).
+- [ ] Matches the [UI element spec](ui-spec.md): a new or changed component has its section there (the coverage test fails otherwise) and its values follow the spec.
 - [ ] Tokens only: no color codes, no raw type sizes, no token override. Light and dark both look right.
 - [ ] Text is at least 12px; controls are 40px (48px on touch) and keep a 44px press area on touch.
 - [ ] Clickable controls show the pointer cursor; disabled ones show `cursor-not-allowed`; the focus ring stays.
