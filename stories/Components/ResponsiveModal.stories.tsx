@@ -9,7 +9,6 @@ const meta = {
   component: ResponsiveModal,
   args: {
     title: 'Edit workout',
-    description: 'Below 640px this is a sheet at the bottom of the screen.',
     open: true,
     children: <Input aria-label="Name" defaultValue="Bench press" />,
     footer: <Button>Save</Button>,

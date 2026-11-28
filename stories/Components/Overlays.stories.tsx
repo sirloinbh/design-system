@@ -89,7 +89,6 @@ export const Confirm: Story = {
   render: () => (
     <ConfirmDialog
       title="Delete this session?"
-      description="This cannot be undone."
       trigger={<Button variant="destructive">Delete</Button>}
       onConfirm={() => undefined}
     />
@@ -98,14 +97,7 @@ export const Confirm: Story = {
 
 export const ConfirmOpen: Story = {
   name: 'ConfirmDialog (open)',
-  render: () => (
-    <ConfirmDialog
-      open
-      title="Delete this session?"
-      description="This cannot be undone."
-      onConfirm={() => undefined}
-    />
-  ),
+  render: () => <ConfirmDialog open title="Delete this session?" onConfirm={() => undefined} />,
 };
 
 export const SheetRight: Story = {

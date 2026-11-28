@@ -72,7 +72,6 @@ export const EmptyStateDefault: Story = {
     <EmptyState
       icon={<InboxIcon />}
       title="No sessions yet"
-      description="Log your first session to see it here."
       action={<Button>Add session</Button>}
     />
   ),

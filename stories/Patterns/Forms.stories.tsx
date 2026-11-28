@@ -104,7 +104,6 @@ export const Empty: Story = {
       <EmptyState
         icon={<InboxIcon />}
         title="No sessions yet"
-        description="Log your first session to see it here."
         action={<Button>Add session</Button>}
       />
     </PatternFrame>
@@ -153,7 +152,6 @@ export const Dialogs: Story = {
       <div className="flex flex-wrap gap-3">
         <ConfirmDialog
           title="Delete this session?"
-          description="This cannot be undone."
           trigger={<Button variant="destructive">Delete session</Button>}
           onConfirm={() => undefined}
         />

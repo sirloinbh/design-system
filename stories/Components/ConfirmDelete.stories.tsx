@@ -21,5 +21,5 @@ type Story = StoryObj<typeof meta>;
 export const Open: Story = {};
 
 export const CustomTexts: Story = {
-  args: { description: 'The sets in this workout are deleted too.', confirmLabel: 'Remove' },
+  args: { confirmLabel: 'Remove' },
 };
