@@ -74,7 +74,7 @@ While loading, feature screens do not leave a blank screen or only text ("Loadin
 
 ## Search
 
-`AppShell` has a "Search" button in the top bar (#58). It opens `SearchDialog` (built on `Dialog`), also with `Ctrl+K` / `Cmd+K` and `/`. Pass `pages` (`{ title, path, keywords? }`) for pages outside the menu and `searchContent(query, signal)` for the app's own content (`SearchResult`: `title`, `href`, `kind`, `snippet?`). Menus are always searched. Content search is debounced, aborts the previous request and uses `LoadingRegion` and `LoadFailed`. Keyboard and screen reader behavior: the input is a named combobox over a listbox, the arrows move, `Enter` opens, `Esc` closes, and the result count is announced. Details: [layout.md](layout.md).
+`AppShell` has a "Search this app" button in the top bar (#58). It opens `SearchDialog` (built on `Dialog`), also with `Ctrl+K` / `Cmd+K` and `/`. Pass `pages` (`{ title, path, keywords? }`) for pages outside the menu and `searchContent(query, signal)` for the app's own content (`SearchResult`: `title`, `href`, `kind`, `snippet?`). Menus are always searched. Content search is debounced, aborts the previous request and uses `LoadingRegion` and `LoadFailed`. Keyboard and screen reader behavior: the input is a combobox named "Search this app" over a listbox, the arrows move, `Enter` opens, `Esc` closes, and the result count is announced. Details: [layout.md](layout.md).
 
 ## Shared helpers
 
