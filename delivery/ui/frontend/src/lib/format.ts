@@ -16,6 +16,22 @@ export function formatNumber(value: number, maximumFractionDigits = 2): string {
   return new Intl.NumberFormat('en-US', { maximumFractionDigits }).format(value);
 }
 
+const currencyFormats = new Map<string, Intl.NumberFormat>();
+
+/**
+ * An amount with its currency symbol: formatCurrency(12500) is "₩12,500" (won, the default), formatCurrency(12.5, 'USD')
+ * is "$12.50". The currency sets the decimals (won has none). A value that is not a finite number gives an empty string.
+ */
+export function formatCurrency(value: number, currency = 'KRW'): string {
+  if (!Number.isFinite(value)) return '';
+  let format = currencyFormats.get(currency);
+  if (!format) {
+    format = new Intl.NumberFormat('en-US', { style: 'currency', currency });
+    currencyFormats.set(currency, format);
+  }
+  return format.format(value);
+}
+
 /**
  * Minutes as hours and minutes: 45 is "45m", 60 is "1h", 135 is "2h 15m". Fractions round to the nearest minute;
  * a negative or unreadable value gives "0m".

@@ -13,7 +13,7 @@ function ConfirmDelete<T>({
   label,
   onConfirm,
   onClose,
-  description = 'This cannot be undone.',
+  description,
   confirmLabel = 'Delete',
   returnFocusRef,
 }: {

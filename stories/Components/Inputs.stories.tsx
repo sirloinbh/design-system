@@ -17,7 +17,7 @@ export const TextInput: Story = {
   render: () => (
     <div className="flex w-72 flex-col gap-2">
       <Label htmlFor="exercise">Exercise</Label>
-      <Input id="exercise" placeholder="Bench press" />
+      <Input id="exercise" />
     </div>
   ),
 };

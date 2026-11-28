@@ -22,9 +22,29 @@ The "Check" column names the test or check that fails when the rule is broken. *
 | Empty and error      | A list with no rows shows `EmptyState` with a next action. A failed load shows the reason (`Notice` or `AlertBanner`) with a retry when one exists                                                | Review                                                                                                                |
 | Icons and emoji      | `lucide-react` icons only, with `aria-label` when meaningful. Emoji are Fluent Emoji Flat SVGs as `<img>`                                                                                         | Review ([ADR-0001](adr/0001-shadcn-ui-icons-emoji.md))                                                                |
 | Responsive           | Mobile first from 360px; the LNB becomes a sidebar at 768px; no horizontal overflow                                                                                                               | Browser tests at 360, 768 and 1280 (#1186); otherwise Review                                                          |
-| Menu order           | Day log, Week, 12 weeks, the app's pages, Dashboard, Settings last ([layout](layout.md#menu-order-every-app))                                                                                     | Review                                                                                                                |
+| Screen text          | No explanatory, example or motivational text on a screen ([screen text rule](#screen-text-rule))                                                                                                  | Review                                                                                                                |
+| Menu order           | Day log, the app's pages, Dashboard (week and 12-week views inside it), Settings last ([layout](layout.md#menu-order-every-app))                                                                  | Review                                                                                                                |
 | Accessibility        | Every component has a name, keyboard operation, visible focus and a state announced to screen readers                                                                                             | A Testing Library test per component (see the component rules below)                                                  |
 | Dependencies         | No new package without the dependency review. Exact versions, no install scripts                                                                                                                  | `ioc:check` and the lockfile; project-standards `dependency-policy.md`                                                |
+
+## Screen text rule
+
+A screen carries no text whose only job is to explain, give an example or encourage (user requirement, 2026-11-28, #59). Three kinds are removed:
+
+| Kind         | What it is                                                                      | Example to remove                                 |
+| ------------ | ------------------------------------------------------------------------------- | ------------------------------------------------- |
+| Explanatory  | Intro paragraphs, `PageHeader` and card descriptions, helper lines under fields | `description="What you did on the selected day."` |
+| Example      | `e.g. ...` lines and example placeholders                                       | `placeholder="e.g. Bench press"`                  |
+| Motivational | Taglines, encouragement, quotes                                                 | `Great job, keep your streak going!`              |
+
+What stays:
+
+- Field labels and button text.
+- Error and validation messages.
+- Empty-state titles.
+- Status text (saved, loading, counts, dates).
+- Screen-reader-only text (`sr-only`, `aria-label`, the hidden description a dialog needs for its accessible name).
+- Legal pages.
 
 ## Component API conventions
 
