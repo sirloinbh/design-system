@@ -1,7 +1,7 @@
-import { XIcon } from 'lucide-react';
 import { Dialog as DialogPrimitive } from 'radix-ui';
 import type * as React from 'react';
 
+import { CloseIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 import { useKeyboardInset } from './keyboard-inset';
 
@@ -72,7 +72,7 @@ function DialogContent({
             data-slot="dialog-close"
             className="absolute top-3 right-3 flex size-8 items-center justify-center rounded-sm opacity-70 transition-opacity outline-none hover:opacity-100 focus-visible:ring-[3px] focus-visible:ring-ring/50 pointer-coarse:size-11 [&_svg]:size-4"
           >
-            <XIcon aria-hidden />
+            <CloseIcon aria-hidden />
             <span className="sr-only">Close</span>
           </DialogPrimitive.Close>
         ) : null}

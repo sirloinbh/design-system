@@ -1,7 +1,7 @@
-import { ArrowLeft } from 'lucide-react';
 import type { ReactNode, RefObject } from 'react';
 import { Link } from 'react-router';
 
+import { BackIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 
 // The heading at the top of a page: an optional small eyebrow line, the page's h1, an optional description and the
@@ -39,7 +39,7 @@ function PageHeader({
             data-slot="page-header-back"
             className="-ml-2 inline-flex min-h-11 w-fit cursor-pointer items-center gap-1 rounded-md px-2 text-body-sm text-muted-foreground underline-offset-4 outline-none hover:text-foreground hover:underline focus-visible:ring-[3px] focus-visible:ring-ring/50 pointer-coarse:min-h-12"
           >
-            <ArrowLeft aria-hidden="true" className="size-4" />
+            <BackIcon aria-hidden="true" className="size-4" />
             {backTo.label}
           </Link>
         ) : null}

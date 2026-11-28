@@ -1,4 +1,3 @@
-import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon, ClockIcon } from 'lucide-react';
 import { Popover as PopoverPrimitive } from 'radix-ui';
 import {
   type ComponentProps,
@@ -9,6 +8,7 @@ import {
   useState,
 } from 'react';
 
+import { CalendarIcon, NextIcon, PreviousIcon, TimeIcon } from '../../lib/icons';
 import { cn } from '../../lib/utils';
 import { Button } from './button';
 import {
@@ -103,7 +103,7 @@ function Month({
           aria-label="Previous month"
           onClick={() => setFocused(addMonths(focused, -1))}
         >
-          <ChevronLeftIcon aria-hidden />
+          <PreviousIcon aria-hidden />
         </Button>
         <div aria-live="polite" className="text-body-sm font-semibold">
           {monthTitle(focused)}
@@ -115,7 +115,7 @@ function Month({
           aria-label="Next month"
           onClick={() => setFocused(addMonths(focused, 1))}
         >
-          <ChevronRightIcon aria-hidden />
+          <NextIcon aria-hidden />
         </Button>
       </div>
       <table ref={grid} role="grid" aria-label={monthTitle(focused)} onKeyDown={onKeyDown}>
@@ -178,7 +178,7 @@ function PickerField({
   children: (close: () => void) => ReactNode;
 }) {
   const [open, setOpen] = useState(false);
-  const Icon = icon === 'calendar' ? CalendarIcon : ClockIcon;
+  const Icon = icon === 'calendar' ? CalendarIcon : TimeIcon;
   return (
     <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
       <PopoverPrimitive.Anchor asChild>

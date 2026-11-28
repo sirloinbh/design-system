@@ -1,14 +1,14 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { HomeIcon, NotebookPenIcon } from 'lucide-react';
 import { MemoryRouter, useLocation } from 'react-router';
 import { afterEach, expect, test, vi } from 'vitest';
 
+import { DayLogIcon, HomeIcon } from '../../lib/icons';
 import { AppShell, type NavItem } from '../layout/app-shell';
 import type { SearchResult } from './search-match';
 
 const nav: NavItem[] = [
   { to: '/', label: 'Overview', icon: HomeIcon },
-  { to: '/journal', label: 'Journal', icon: NotebookPenIcon },
+  { to: '/journal', label: 'Journal', icon: DayLogIcon },
 ];
 
 function Where() {

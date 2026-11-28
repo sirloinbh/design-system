@@ -9,6 +9,8 @@ import importSort from 'eslint-plugin-simple-import-sort';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
+import { iconImportConfig } from './src/lib/icon-rules.mjs';
+
 // The UI source lives in src/ (the apps use frontend/src/), so the type-aware and React rules point there.
 // scripts/ and the sync-owned paths (.standards/, .claude/, .codex/, .vscode/, skills/) are copied as they are from
 // project-standards, so they are not linted here.
@@ -43,4 +45,6 @@ export default [
     files: ['stories/**/*.stories.tsx', '.storybook/*.{ts,tsx}'],
     rules: { 'no-restricted-syntax': 'off' },
   },
+  // One icon per meaning (#70): a lucide-react icon the map in src/lib/icons.ts covers is imported from there.
+  iconImportConfig({ files: ['src/**/*.{ts,tsx}'], ignores: ['src/lib/icons.ts'] }),
 ];
