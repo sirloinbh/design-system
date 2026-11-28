@@ -15,3 +15,5 @@ src/lib/theme-config.ts
 src/lib/ai-config.ts
 src/lib/auth-config.ts
 public/theme-init.js
+playwright-report/
+test-results/

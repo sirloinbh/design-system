@@ -25,7 +25,7 @@ test('guideline rule names and headings are found', () => {
   const entries = docEntries(docs);
   expect(search(entries, 'type scale')[0]).toMatchObject({
     kind: 'rule',
-    path: '/story/guidelines-design-guidelines--page',
+    path: '/docs/guidelines-design-guidelines--docs',
   });
   expect(search(entries, 'rules')[0].kind).toBe('section');
   expect(entries.map((e) => e.name)).not.toContain('Area');
