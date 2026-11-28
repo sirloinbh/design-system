@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest';
 
 import { optionalNumber } from '../components/ui/number-step';
-import { formatDate, formatDuration, formatNumber, plural, serviceToday } from './format';
+import { formatCurrency, formatDate, formatDuration, formatNumber, plural, serviceToday } from './format';
 
 test('plural picks the singular only for exactly one and groups the count', () => {
   expect(plural(1, 'set')).toBe('1 set');
@@ -57,4 +57,15 @@ test('optionalNumber (the shared amount reader) accepts up to 15 significant dig
   expect(optionalNumber('1234567890123456')).toBeNaN();
   expect(optionalNumber('12345678901234.567')).toBeNaN();
   expect(optionalNumber('')).toBeNull();
+});
+
+test('formatCurrency shows won by default, follows the currency decimals and hides what is not a number', () => {
+  expect(formatCurrency(12500)).toBe('₩12,500');
+  expect(formatCurrency(0)).toBe('₩0');
+  expect(formatCurrency(-3000)).toBe('-₩3,000');
+  expect(formatCurrency(1234567.4)).toBe('₩1,234,567');
+  expect(formatCurrency(12.5, 'USD')).toBe('$12.50');
+  expect(formatCurrency(1200, 'JPY')).toBe('¥1,200');
+  expect(formatCurrency(Number.NaN)).toBe('');
+  expect(formatCurrency(Number.POSITIVE_INFINITY, 'USD')).toBe('');
 });
