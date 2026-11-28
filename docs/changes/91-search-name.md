@@ -13,7 +13,8 @@
 
 - `src/components/layout/app-shell.tsx`: the top bar button is named "Search this app".
 - `src/components/search/search-dialog.tsx`: the combobox is named "Search this app". The hidden dialog title stays "Search".
-- `src/components/search/search-dialog.test.tsx`, `docs/layout.md`, `docs/ui-components.md`: the new name.
+- `src/components/search/search-dialog.test.tsx`: the new name.
+- `docs/layout.md` and `docs/ui-components.md` still say "Search" on this branch: they are showcase pages with screenshot baselines, and the docs are not delivered to the apps. The main PR updates them with new baselines.
 - `delivery/ui/`: regenerated with `npm run delivery`.
 
 App changes: none needed. App tests that look for their own "Search" button or field find one element again.
