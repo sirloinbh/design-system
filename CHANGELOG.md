@@ -2,6 +2,14 @@
 
 One section per release of this repository (the package `@sirloinbh/design-tokens` has its own changelog in `packages/design-tokens/`). Add the section in the release PR, newest first, using `node scripts/release-plan.mjs` for the version and the draft. How a release works: [docs/release.md](docs/release.md).
 
+## 1.0.2
+
+Fixes the v1.0.1 pin: the top bar search that 1.0.1 added (#58, missing from the 1.0.1 notes) was named "Search", the same name as the apps' own search buttons and fields, and two apps' tests found two elements. App changes: none needed (patch). Apps receive the top bar button and the search input named "Search this app". Cut from `release/1.0.x` (v1.0.1 plus #91); main's newer changes come in the next release.
+
+Changes:
+
+- #91 Give the top bar search a name that does not collide with app search buttons (patch; docs/changes/91-search-name.md)
+
 ## 1.0.1
 
 Fixes the first sync: the v1.0.0 sync PR failed the apps' `prettier --check`. App changes: none needed (patch). Apps receive the same files with the Tailwind class order of the apps' Prettier plugin, and the fixed dark dropdown lists.
