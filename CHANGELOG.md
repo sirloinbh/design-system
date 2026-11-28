@@ -2,6 +2,16 @@
 
 One section per release of this repository (the package `@sirloinbh/design-tokens` has its own changelog in `packages/design-tokens/`). Add the section in the release PR, newest first, using `node scripts/release-plan.mjs` for the version and the draft. How a release works: [docs/release.md](docs/release.md).
 
+## 1.0.1
+
+Fixes the first sync: the v1.0.0 sync PR failed the apps' `prettier --check`. App changes: none needed (patch). Apps receive the same files with the Tailwind class order of the apps' Prettier plugin, and the fixed dark dropdown lists.
+
+Changes:
+
+- #1219 Format the kit like the apps, with prettier-plugin-tailwindcss (patch; docs/changes/1219-format-like-apps.md)
+- #60 Fix white text on white dropdown lists in dark mode (patch; docs/changes/60-dark-dropdown-lists.md)
+- #1173 release.yml: read the @sirloinbh packages (none; docs/changes/1173-release-packages-read.md)
+
 ## 1.0.0
 
 The first release. Pinned in project-standards, it replaces the UI kit copy that project-standards delivered itself: the sync then delivers `delivery/ui/` of this tag. `sign-in.tsx` and the service worker files still come from project-standards.

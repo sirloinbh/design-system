@@ -31,7 +31,7 @@ function NavTabs({
               end={item.end}
               className={({ isActive }) =>
                 cn(
-                  '-mb-px inline-flex min-h-11 cursor-pointer items-center border-b-2 px-4 text-body-sm font-medium whitespace-nowrap outline-none pointer-coarse:min-h-12 focus-visible:ring-[3px] focus-visible:ring-ring/50',
+                  '-mb-px inline-flex min-h-11 cursor-pointer items-center border-b-2 px-4 text-body-sm font-medium whitespace-nowrap outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 pointer-coarse:min-h-12',
                   isActive
                     ? 'border-primary text-foreground'
                     : 'border-transparent text-muted-foreground hover:text-foreground',
