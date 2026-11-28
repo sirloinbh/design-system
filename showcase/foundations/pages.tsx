@@ -147,7 +147,7 @@ export function ColorsPage() {
                 </Td>
                 <Td>
                   <Ratio text={c.name} on={on} mode="light" />
-                  {on ? <small> on {on}</small> : null}
+                  {on ? <span style={{ fontSize: 12 }}> on {on}</span> : null}
                 </Td>
                 <Td>
                   <Ratio text={c.name} on={on} mode="dark" />
