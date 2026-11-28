@@ -3,6 +3,7 @@ import type * as React from 'react';
 import { useCallback, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 
+import { CurrentAppIcon } from '../../lib/apps';
 import { DARK_ONLY } from '../../lib/theme-config';
 import { cn } from '../../lib/utils';
 import { type SearchContent,SearchDialog } from '../search/search-dialog';
@@ -17,7 +18,7 @@ import { ThemeToggle } from './theme-toggle';
 // The common app frame (docs/layout.md): top bar, main menu (LNB), content and footer.
 // From md (768px) the menu is a fixed sidebar; below it opens as a sheet from the left.
 // The header adds the top safe-area inset to its 3.5rem, so the sidebar's top and height add it too (#686).
-// Only the app name differs between apps; menu items come from the app's own page list.
+// Only the app name and icon differ between apps; menu items come from the app's own page list.
 
 export type NavItem = { to: string; label: string; icon?: LucideIcon; end?: boolean };
 
@@ -104,9 +105,11 @@ function AppShell({
           </Sheet>
           <Link
             to="/"
-            className="flex min-h-11 items-center truncate rounded-md px-2 font-semibold outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+            aria-label={appName}
+            title={appName}
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-md px-2 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
           >
-            {appName}
+            <CurrentAppIcon className="size-6" aria-hidden />
           </Link>
           <div className="ml-auto flex items-center gap-1">
             <Button variant="ghost" size="icon" ref={searchButton}
