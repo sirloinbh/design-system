@@ -17,7 +17,11 @@ type Options = {
  * Setting the fallback or an empty string removes the parameter, so the default view keeps a short address. Other
  * parameters stay as they are.
  */
-export function useUrlParam(key: string, fallback = '', { replace = false, resetKeys = [] }: Options = {}) {
+export function useUrlParam(
+  key: string,
+  fallback = '',
+  { replace = false, resetKeys = [] }: Options = {},
+) {
   const [params, setParams] = useSearchParams();
   const value = params.get(key) ?? fallback;
   const reset = resetKeys.join('\n');

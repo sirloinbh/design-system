@@ -7,7 +7,9 @@ import { useUrlParam } from './use-url-param';
 
 const wrap =
   (initial: string) =>
-  ({ children }: { children: ReactNode }) => <MemoryRouter initialEntries={[initial]}>{children}</MemoryRouter>;
+  ({ children }: { children: ReactNode }) => (
+    <MemoryRouter initialEntries={[initial]}>{children}</MemoryRouter>
+  );
 
 test('the value is read from the address and falls back when the parameter is absent', () => {
   const { result } = renderHook(() => useUrlParam('q'), { wrapper: wrap('/songs?q=love') });
