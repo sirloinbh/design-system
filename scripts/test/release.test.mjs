@@ -45,7 +45,7 @@ test('release notes are the CHANGELOG section of one version', () => {
   assert.equal(releaseNotes(text, '1.0.0'), '- A');
   assert.equal(releaseNotes(text, '2.0.0'), null);
   assert.equal(newestVersion(text), '1.1.0');
-  assert.equal(newestVersion(fs.readFileSync(path.join(root, 'CHANGELOG.md'), 'utf8')), null);
+  assert.match(newestVersion(fs.readFileSync(path.join(root, 'CHANGELOG.md'), 'utf8')), /^\d+\.\d+\.\d+$/);
 });
 
 test('the release workflow runs on v tags only, never on package tags, and skips the pin PR without the App', () => {
